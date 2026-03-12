@@ -612,11 +612,11 @@ footer {
 
 <!-- NAV -->
 <nav>
-  <a href="#" onclick="scrollTo('hero');return false;" class="nav-logo">🎡 Philly Family HQ</a>
+  <a href="#" onclick="scrollToSection('hero');return false;" class="nav-logo">🎡 Philly Family HQ</a>
   <div class="nav-links">
-    <a href="#" onclick="scrollTo('activities');return false;" class="nav-link act">🎮 <span>Activities</span></a>
-    <a href="#" onclick="scrollTo('places');return false;" class="nav-link place">🗺 <span>Places</span></a>
-    <a href="#" onclick="scrollTo('food');return false;" class="nav-link food">🥩 <span>Takeout</span></a>
+    <a href="#" onclick="scrollToSection('activities');return false;" class="nav-link act">🎮 <span>Activities</span></a>
+    <a href="#" onclick="scrollToSection('places');return false;" class="nav-link place">🗺 <span>Places</span></a>
+    <a href="#" onclick="scrollToSection('food');return false;" class="nav-link food">🥩 <span>Takeout</span></a>
   </div>
 </nav>
 
@@ -632,15 +632,15 @@ footer {
     </h1>
     <p class="hero-sub">Three spinning wheels to solve every family dilemma — what to do, where to go, and what to eat tonight.</p>
     <div class="hero-cards">
-      <a href="#" onclick="scrollTo('activities');return false;" class="hero-card act">
+      <a href="#" onclick="scrollToSection('activities');return false;" class="hero-card act">
         <span class="icon">🎮</span>
         <span class="label">Screen-Free<br>Activities</span>
       </a>
-      <a href="#" onclick="scrollTo('places');return false;" class="hero-card place">
+      <a href="#" onclick="scrollToSection('places');return false;" class="hero-card place">
         <span class="icon">🦁</span>
         <span class="label">Philly Kid<br>Adventures</span>
       </a>
-      <a href="#" onclick="scrollTo('food');return false;" class="hero-card food">
+      <a href="#" onclick="scrollToSection('food');return false;" class="hero-card food">
         <span class="icon">🥩</span>
         <span class="label">Philly<br>Takeout</span>
       </a>
@@ -808,9 +808,9 @@ footer {
   <div class="footer-logo">🎡 Philly Family HQ</div>
   <div class="footer-sub">Made with ❤️ for Philly families</div>
   <div class="footer-links">
-    <a href="#" onclick="scrollTo('activities');return false;" class="footer-link act">Activities</a>
-    <a href="#" onclick="scrollTo('places');return false;" class="footer-link place">Places</a>
-    <a href="#" onclick="scrollTo('food');return false;" class="footer-link food">Takeout</a>
+    <a href="#" onclick="scrollToSection('activities');return false;" class="footer-link act">Activities</a>
+    <a href="#" onclick="scrollToSection('places');return false;" class="footer-link place">Places</a>
+    <a href="#" onclick="scrollToSection('food');return false;" class="footer-link food">Takeout</a>
   </div>
 </footer>
 
@@ -818,7 +818,7 @@ footer {
 // ═══════════════════════════════════════════════════════════════════
 // NAVIGATION
 // ═══════════════════════════════════════════════════════════════════
-function scrollTo(id) {
+function scrollToSection(id) {
   document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
