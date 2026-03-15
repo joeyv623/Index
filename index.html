@@ -214,6 +214,10 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 .fg label{font-size:.69rem;font-weight:600;color:var(--muted)}
 .fg select{background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:.33rem .72rem;color:var(--text);font-size:.8rem;font-family:'Inter',sans-serif;font-weight:500;cursor:pointer;min-width:130px;transition:border-color .15s;appearance:auto}
 .fg select:focus{outline:none;border-color:#3b82f6}
+
+.shared-meals-link{padding:.6rem 1.5rem;text-align:center}
+.meals-note{display:inline-block;font-size:.75rem;font-weight:600;color:var(--muted);background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:.25rem .9rem;cursor:pointer}
+.meals-note:hover{color:var(--text)}
 footer{background:var(--surface);border-top:1px solid var(--border);text-align:center;padding:1.8rem 1.5rem;color:var(--muted);font-size:.82rem}
 footer a{color:var(--muted);text-decoration:none;cursor:pointer;transition:color .15s}
 footer a:hover{color:var(--text)}
@@ -256,6 +260,18 @@ footer a:hover{color:var(--text)}
 <div id="p-ho"  class="cpanel"></div>
 <div id="p-la"  class="cpanel"></div>
 
+
+<!-- ═══════════ SHARED MEAL PREP & QUICK MEALS ═══════════ -->
+<div id="shared-meals" style="background:var(--bg);border-top:2px solid var(--border)">
+  <div style="max-width:1060px;margin:0 auto;padding:2.5rem 1.5rem 1.5rem">
+    <div style="text-align:center;margin-bottom:2rem">
+      <div style="display:inline-flex;align-items:center;gap:.5rem;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:.3rem 1rem;font-size:.73rem;font-weight:700;color:var(--muted);margin-bottom:.7rem">🌎 Available for all cities</div>
+      <div style="font-size:1.1rem;font-weight:800;color:var(--text)">Meal Prep &amp; Quick Meals</div>
+      <div style="font-size:.85rem;color:var(--muted);margin-top:.3rem">These spinners work the same no matter which city you're in</div>
+    </div>
+    <div id="shared-meals-content" style="display:flex;flex-direction:column;gap:3rem"></div>
+  </div>
+</div>
 <footer>
   <div class="fbrand">🎡 Family HQ</div>
   <p>Made with ❤️ for families everywhere</p>
@@ -1197,15 +1213,14 @@ function mkWheel(k,icon,sz,btn,id,lbl,title,tc,desc,rHTML,fHTML){
 </div>${fHTML}</div></div>`;
 }
 
-function scrollTo(id){
+function scrollToSection(id){
   setTimeout(()=>{
     const el=document.getElementById(id);
     if(el){
-      // offset for sticky nav (city bar ~60px + inner nav ~44px)
       const y=el.getBoundingClientRect().top+window.pageYOffset-110;
       window.scrollTo({top:y,behavior:'smooth'});
     }
-  },80);
+  },100);
   return false;
 }
 
@@ -1225,14 +1240,8 @@ function buildCity(cid){
   const toR=`<div class="rgrid"><div><div class="rlbl">Neighborhood</div><div class="rval" id="${tk}-hood"></div></div><div><div class="rlbl">Cuisine</div><div class="rval" id="${tk}-cui"></div></div><div><div class="rlbl">Price</div><div class="rval" id="${tk}-pri"></div></div><div style="grid-column:1/-1"><div class="rlbl">About</div><div class="rval" id="${tk}-abt"></div></div></div>`;
   const toF=`<div class="fzone"><div class="ftop"><span class="fhead">Filter Restaurants</span><div class="fright"><span class="cpill"><b id="${tk}-cnt">${cd.takeout.length}</b> restaurants</span><button class="rbtn" onclick="rf('${tk}')">↺ Reset</button><button class="dlbtn" onclick="dl('${tk}')">⬇ Download</button></div></div><div class="filters"><div class="fg"><label>🗺 Neighborhood</label><select id="${tk}-hd" onchange="uc('${tk}')"><option value="">All</option>${hoods.map(h=>`<option>${h}</option>`).join('')}</select></div><div class="fg"><label>🍽 Cuisine</label><select id="${tk}-cu" onchange="uc('${tk}')"><option value="">All</option>${cuis.map(c=>`<option>${c}</option>`).join('')}</select></div><div class="fg"><label>💰 Price</label><select id="${tk}-pr" onchange="uc('${tk}')"><option value="">Any</option><option value="$">$ Budget</option><option value="$$">$$ Mid-range</option><option value="$$$">$$$ Splurge</option></select></div></div></div>`;
 
-  const mpR=`<div class="rdesc" id="m-desc"></div><div class="mings"><h5>🛒 Key Ingredients</h5><div class="ingwrap" id="m-ings"></div></div><div class="msteps" id="m-steps"></div><div class="shopwrap" id="m-shop" style="display:none"><div class="shopsec"><h5>📦 Amazon Fresh</h5><div class="shoprow" id="m-afl"></div></div><div class="shopsec"><h5>🔧 Kitchen Gear</h5><div class="shoprow" id="m-gear"></div></div></div>`;
-  const mpF=`<div class="fzone"><div class="ftop"><span class="fhead">Filter Meals</span><div class="fright"><span class="cpill"><b id="m-cnt">${MP.length}</b> meals</span><button class="rbtn" onclick="rf('m')">↺ Reset</button><button class="dlbtn" onclick="dl('m')">⬇ Download</button></div></div><div class="filters"><div class="fg"><label>👨‍👩‍👧‍👦 Family Size</label><select id="m-sz" onchange="uc('m')"><option value="">Any</option><option value="small">Small (1–2)</option><option value="medium">Medium (3–4)</option><option value="large">Large (5–6)</option><option value="xl">XL (7+)</option></select></div><div class="fg"><label>🥦 Dietary</label><select id="m-di" onchange="uc('m')"><option value="">Any</option><option>Vegetarian</option><option>Vegan</option><option>Gluten-Free</option><option>Kid-Friendly</option></select></div><div class="fg"><label>⏱ Prep Time</label><select id="m-ti" onchange="uc('m')"><option value="">Any</option><option>Under 30 min</option><option>30–60 min</option><option>1–2 hours</option><option>2+ hours</option></select></div><div class="fg"><label>🍳 Type</label><select id="m-ty" onchange="uc('m')"><option value="">Any</option><option>Breakfast</option><option>Lunch</option><option>Dinner</option><option>Snacks</option></select></div><div class="fg"><label>🌡 Method</label><select id="m-me" onchange="uc('m')"><option value="">Any</option><option>Sheet Pan</option><option>Slow Cooker</option><option>Instant Pot</option><option>Stovetop</option><option>No Cook</option><option>Oven</option></select></div></div></div>`;
-
-  const qmR=`<div class="rdesc" id="q-desc"></div><div class="mings"><h5>🛒 What You Need</h5><div class="ingwrap" id="q-ings"></div></div><div class="msteps" id="q-steps"></div><div class="shopwrap" id="q-shop" style="display:none"><div class="shopsec"><h5>📦 Amazon Fresh</h5><div class="shoprow" id="q-afl"></div></div><div class="shopsec"><h5>🔧 Kitchen Gear</h5><div class="shoprow" id="q-gear"></div></div></div>`;
-  const qmF=`<div class="fzone"><div class="ftop"><span class="fhead">Filter Quick Meals</span><div class="fright"><span class="cpill"><b id="q-cnt">${QM.length}</b> meals</span><button class="rbtn" onclick="rf('q')">↺ Reset</button><button class="dlbtn" onclick="dl('q')">⬇ Download</button></div></div><div class="filters"><div class="fg"><label>👨‍👩‍👧‍👦 Family Size</label><select id="q-sz" onchange="uc('q')"><option value="">Any</option><option value="small">Small (1–2)</option><option value="medium">Medium (3–4)</option><option value="large">Large (5–6)</option><option value="xl">XL (7+)</option></select></div><div class="fg"><label>🥦 Dietary</label><select id="q-di" onchange="uc('q')"><option value="">Any</option><option>Vegetarian</option><option>Gluten-Free</option><option>Kid-Friendly</option><option>Vegan</option></select></div><div class="fg"><label>🌡 Method</label><select id="q-me" onchange="uc('q')"><option value="">Any</option><option>Stovetop</option><option>Sheet Pan</option><option>No Cook</option><option>Air Fryer</option></select></div></div></div>`;
-
-  const hn=`<nav class="inner-nav"><div class="inner-nav-inner"><a href="#${cid}-act" onclick="scrollTo('${cid}-act')">🎭 Activities</a><a href="#${cid}-pl" onclick="scrollTo('${cid}-pl')">🗺 Places</a><a href="#${cid}-to" onclick="scrollTo('${cid}-to')">${cd.toIcon} Takeout</a><a href="#mp" onclick="scrollTo('mp')">🥗 Meal Prep</a><a href="#qm" onclick="scrollTo('qm')">⚡ Quick Meals</a></div></nav>`;
-  const hc=`<section class="hero" style="background:radial-gradient(ellipse 80% 50% at 50% -20%,${cd.heroColor},transparent),linear-gradient(180deg,#0d1117,#0d1117)"><div class="hero-ey">${cd.tagline}</div><h1><span style="background:linear-gradient(135deg,#22c55e,#86efac);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Stop Scrolling.</span> <span style="background:linear-gradient(135deg,#a855f7,#d8b4fe);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Start Spinning.</span> <span style="background:linear-gradient(135deg,#f97316,#fdba74);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Just Have Fun.</span></h1><p>${cd.desc}</p><div class="hcards"><a onclick="scrollTo('${cid}-act')" class="hcard" style="cursor:pointer"><span class="ci">🎭</span><span>Screen-Free<br>Activities</span></a><a onclick="scrollTo('${cid}-pl')" class="hcard" style="cursor:pointer"><span class="ci">${cd.plIcon}</span><span>${cd.name}<br>Adventures</span></a><a onclick="scrollTo('${cid}-to')" class="hcard" style="cursor:pointer"><span class="ci">${cd.toIcon}</span><span>${cd.name}<br>Takeout</span></a><a onclick="scrollTo('mp')" class="hcard" style="cursor:pointer"><span class="ci">🥗</span><span>Meal<br>Prep</span></a><a onclick="scrollTo('qm')" class="hcard" style="cursor:pointer"><span class="ci">⚡</span><span>Quick<br>Meals</span></a></div></section>`;
+  const hn=`<nav class="inner-nav"><div class="inner-nav-inner"><a href="#${cid}-act" onclick="scrollToSection('${cid}-act')">🎭 Activities</a><a href="#${cid}-pl" onclick="scrollToSection('${cid}-pl')">🗺 Places</a><a href="#${cid}-to" onclick="scrollToSection('${cid}-to')">${cd.toIcon} Takeout</a><a href="#mp" onclick="scrollToSection('mp')">🥗 Meal Prep</a><a href="#qm" onclick="scrollToSection('qm')">⚡ Quick Meals</a></div></nav>`;
+  const hc=`<section class="hero" style="background:radial-gradient(ellipse 80% 50% at 50% -20%,${cd.heroColor},transparent),linear-gradient(180deg,#0d1117,#0d1117)"><div class="hero-ey">${cd.tagline}</div><h1><span style="background:linear-gradient(135deg,#22c55e,#86efac);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Stop Scrolling.</span> <span style="background:linear-gradient(135deg,#a855f7,#d8b4fe);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Start Spinning.</span> <span style="background:linear-gradient(135deg,#f97316,#fdba74);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Just Have Fun.</span></h1><p>${cd.desc}</p><div class="hcards"><a onclick="scrollToSection('${cid}-act')" class="hcard" style="cursor:pointer"><span class="ci">🎭</span><span>Screen-Free<br>Activities</span></a><a onclick="scrollToSection('${cid}-pl')" class="hcard" style="cursor:pointer"><span class="ci">${cd.plIcon}</span><span>${cd.name}<br>Adventures</span></a><a onclick="scrollToSection('${cid}-to')" class="hcard" style="cursor:pointer"><span class="ci">${cd.toIcon}</span><span>${cd.name}<br>Takeout</span></a><a onclick="scrollToSection('mp')" class="hcard" style="cursor:pointer"><span class="ci">🥗</span><span>Meal<br>Prep</span></a><a onclick="scrollToSection('qm')" class="hcard" style="cursor:pointer"><span class="ci">⚡</span><span>Quick<br>Meals</span></a></div></section>`;
 
   el.innerHTML=hn+hc+`<div class="page">`
     +mkWheel(ak,'🎭','sz-a','b-a',cid+'-act','📵 No Screens Required','What Should We Do?','st-a',ACT.length+' screen-free activities for kids of all ages.',actR,actF)
@@ -1240,17 +1249,31 @@ function buildCity(cid){
     +mkWheel(pk,cd.plIcon,'sz-p','b-p',cid+'-pl',cd.plLabel,'Where Should We Go?','st-p',cd.places.length+' kid-friendly destinations.',plR,plF)
     +'<hr class="sdiv"/>'
     +mkWheel(tk,cd.toIcon,'sz-t','b-t',cid+'-to',cd.toLabel,'What Should We Eat Tonight?','st-t',cd.takeout.length+' restaurants for takeout or delivery.',toR,toF)
-    +'<hr class="sdiv"/>'
-    +mkWheel('m','🥗','sz-m','b-m','mp','🥗 Weekly Meal Prep','What Should We Meal Prep?','st-m',MP.length+' family-friendly meal prep ideas.',mpR,mpF)
-    +'<hr class="sdiv"/>'
-    +mkWheel('q','⚡','sz-q','b-q','qm','⚡ 30 Minutes or Less',"What's for Dinner — Fast?",'st-q',QM.length+' quick weeknight meals.',qmR,qmF)
+    +`<div class="shared-meals-link"><div class="meals-note">↓ Meal Prep &amp; Quick Meals are shared below</div></div>`
     +`</div>`;
 
-  [ak,pk,tk,'m','q'].forEach(uc);
+  [ak,pk,tk].forEach(uc);
 }
 
 const built=new Set();
 buildCity('ph');built.add('ph');
+buildSharedMeals();
+function buildSharedMeals(){
+  const mpR=`<div class="rdesc" id="m-desc"></div><div class="mings"><h5>🛒 Key Ingredients</h5><div class="ingwrap" id="m-ings"></div></div><div class="msteps" id="m-steps"></div><div class="shopwrap" id="m-shop" style="display:none"><div class="shopsec"><h5>📦 Amazon Fresh</h5><div class="shoprow" id="m-afl"></div></div><div class="shopsec"><h5>🔧 Kitchen Gear</h5><div class="shoprow" id="m-gear"></div></div></div>`;
+  const mpF=`<div class="fzone"><div class="ftop"><span class="fhead">Filter Meals</span><div class="fright"><span class="cpill"><b id="m-cnt">${MP.length}</b> meals</span><button class="rbtn" onclick="rf('m')">↺ Reset</button><button class="dlbtn" onclick="dl('m')">⬇ Download</button></div></div><div class="filters"><div class="fg"><label>👨‍👩‍👧‍👦 Family Size</label><select id="m-sz" onchange="uc('m')"><option value="">Any</option><option value="small">Small (1–2)</option><option value="medium">Medium (3–4)</option><option value="large">Large (5–6)</option><option value="xl">XL (7+)</option></select></div><div class="fg"><label>🥦 Dietary</label><select id="m-di" onchange="uc('m')"><option value="">Any</option><option>Vegetarian</option><option>Vegan</option><option>Gluten-Free</option><option>Kid-Friendly</option></select></div><div class="fg"><label>⏱ Prep Time</label><select id="m-ti" onchange="uc('m')"><option value="">Any</option><option>Under 30 min</option><option>30–60 min</option><option>1–2 hours</option><option>2+ hours</option></select></div><div class="fg"><label>🍳 Type</label><select id="m-ty" onchange="uc('m')"><option value="">Any</option><option>Breakfast</option><option>Lunch</option><option>Dinner</option><option>Snacks</option></select></div><div class="fg"><label>🌡 Method</label><select id="m-me" onchange="uc('m')"><option value="">Any</option><option>Sheet Pan</option><option>Slow Cooker</option><option>Instant Pot</option><option>Stovetop</option><option>No Cook</option><option>Oven</option></select></div></div></div>`;
+
+  const qmR=`<div class="rdesc" id="q-desc"></div><div class="mings"><h5>🛒 What You Need</h5><div class="ingwrap" id="q-ings"></div></div><div class="msteps" id="q-steps"></div><div class="shopwrap" id="q-shop" style="display:none"><div class="shopsec"><h5>📦 Amazon Fresh</h5><div class="shoprow" id="q-afl"></div></div><div class="shopsec"><h5>🔧 Kitchen Gear</h5><div class="shoprow" id="q-gear"></div></div></div>`;
+  const qmF=`<div class="fzone"><div class="ftop"><span class="fhead">Filter Quick Meals</span><div class="fright"><span class="cpill"><b id="q-cnt">${QM.length}</b> meals</span><button class="rbtn" onclick="rf('q')">↺ Reset</button><button class="dlbtn" onclick="dl('q')">⬇ Download</button></div></div><div class="filters"><div class="fg"><label>👨‍👩‍👧‍👦 Family Size</label><select id="q-sz" onchange="uc('q')"><option value="">Any</option><option value="small">Small (1–2)</option><option value="medium">Medium (3–4)</option><option value="large">Large (5–6)</option><option value="xl">XL (7+)</option></select></div><div class="fg"><label>🥦 Dietary</label><select id="q-di" onchange="uc('q')"><option value="">Any</option><option>Vegetarian</option><option>Gluten-Free</option><option>Kid-Friendly</option><option>Vegan</option></select></div><div class="fg"><label>🌡 Method</label><select id="q-me" onchange="uc('q')"><option value="">Any</option><option>Stovetop</option><option>Sheet Pan</option><option>No Cook</option><option>Air Fryer</option></select></div></div></div>`;
+
+  const container = document.getElementById('shared-meals-content');
+  container.innerHTML =
+    mkWheel('m','🥗','sz-m','b-m','mp','🥗 Weekly Meal Prep','What Should We Meal Prep?','st-m',MP.length+' family-friendly meal prep ideas.',mpR,mpF)
+    +'<hr class="sdiv"/>'
+    +mkWheel('q','⚡','sz-q','b-q','qm','⚡ 30 Minutes or Less',"What\'s for Dinner — Fast?",'st-q',QM.length+' quick weeknight meals.',qmR,qmF);
+
+  ['m','q'].forEach(uc);
+}
+
 </script>
 </body>
 </html>
