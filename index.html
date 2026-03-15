@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -275,6 +276,10 @@ footer a:hover{color:var(--text)}
 <footer>
   <div class="fbrand">🎡 Family HQ</div>
   <p>Made with ❤️ for families everywhere</p>
+
+  <p style="font-size:.7rem;opacity:.7;max-width:720px;margin:.75rem auto 0">
+    As an Amazon Associate, we earn from qualifying purchases.
+  </p>
   <div class="flinks">
     <a onclick="switchCity('ph')">🔔 Philadelphia</a>
     <a onclick="switchCity('ny')">🗽 New York</a>
@@ -284,7 +289,7 @@ footer a:hover{color:var(--text)}
 </footer>
 
 <script>
-const TAG="familyhq-20";
+const TAG="phillyfamilyh-20";
 const amzn=q=>`https://www.amazon.com/s?k=${encodeURIComponent(q)}&tag=${TAG}`;
 const afsh=q=>`https://www.amazon.com/s?i=amazonfresh&k=${encodeURIComponent(q)}&tag=${TAG}`;
 
@@ -1134,6 +1139,66 @@ const il=(n,c)=>`<a class="ipill ${c}" href="${afsh(n)}" target="_blank" rel="no
 const sb=(s)=>`<a class="sha amzn" href="${amzn(s.q)}" target="_blank" rel="noopener">${xSVG}${s.label}</a>`;
 function afl(ings){const q=ings.slice(0,5).join(' ');return`<a class="sha af" href="${afsh(q)}" target="_blank" rel="noopener">${xSVG}📦 Shop all on Amazon Fresh</a>`+ings.slice(0,4).map(i=>`<a class="sha af" href="${afsh(i)}" target="_blank" rel="noopener" style="font-size:.72rem;padding:.22rem .55rem">${i}</a>`).join('');}
 
+
+
+// ── ACTIVITIES: Amazon supply links + “Buy everything” bundle (expanded) ──
+function actNormalizeNeed(str){
+  if(!str) return [];
+  const raw = str.split(',').map(s=>s.trim()).filter(Boolean);
+  const cleaned = raw
+    .map(s=>s.replace(/\([^)]*\)/g,'').trim())
+    .map(s=>s.replace(/\s{2,}/g,' '))
+    .filter(Boolean);
+  return [...new Set(cleaned)];
+}
+function actBundleQuery(item){
+  const base = (item && item.name) ? item.name : 'kids activity';
+  const cat = (item && item.cat) ? item.cat : '';
+  const addKids = /kids|family|child|toddler|teen/i.test(base) ? '' : ' kids';
+  // “kit” tends to convert well for crafts/science; “set” for games/tools.
+  const kitWord = /Arts & Crafts|Science|Cooking|Music|Reading/i.test(cat) ? 'kit' : 'set';
+  return `${base} ${kitWord} supplies${addKids}${cat ? ' ' + cat : ''}`;
+}
+function actSuggestedQueries(item){
+  const cat = (item && item.cat) ? item.cat : '';
+  // 6 category-based add-ons to increase link count + relevance
+  const map = {
+    'Arts & Crafts': ['kids craft supplies kit', 'washable markers', 'construction paper bulk', 'non toxic glue sticks', 'safety scissors kids', 'acrylic paint set'],
+    'Science': ['kids science kit', 'baking soda bulk', 'food coloring set', 'magnifying glass kids', 'lab goggles kids', 'pipette droppers set'],
+    'Outdoor': ['outdoor toys kids', 'sidewalk chalk bulk', 'water balloons quick fill', 'bubble machine', 'kite for kids easy', 'hula hoop set'],
+    'Games': ['family board games', 'playing cards deck', 'jenga game', 'dice set', 'puzzle 500 pieces', 'charades cards kids'],
+    'Music': ['kids musical instruments set', 'hand drum kids', 'maracas set', 'karaoke microphone', 'xylophone kids', 'rhythm sticks'],
+    'Cooking': ['kids baking set', 'cookie decorating kit', 'kid safe knives', 'mixing bowls set', 'measuring cups and spoons', 'apron kids'],
+    'Reading': ['story dice', 'mad libs books', 'kids joke book', 'picture books bundle', 'chapter books kids', 'reading pillows']
+  };
+  return map[cat] || ['kids activity kit', 'craft supplies for kids', 'family game night', 'outdoor toys kids', 'kids science kit', 'kids art set'];
+}
+function actShopLinks(item){
+  const needs = actNormalizeNeed(item && item.need);
+  // More links: show up to 10 itemized needs
+  const topNeeds = needs.slice(0,10);
+  const bundleQ = actBundleQuery(item);
+  const sug = actSuggestedQueries(item).slice(0,6);
+
+  return `
+    <div class="shopwrap" style="margin-top:.6rem">
+      <div class="shopsec">
+        <h5>🛒 Supplies on Amazon</h5>
+        <div class="shoprow">
+          <a class="sha amzn" href="${amzn(bundleQ)}" target="_blank" rel="noopener">${xSVG}🧺 Buy everything (bundle)</a>
+          ${topNeeds.map(n => `<a class="sha amzn" href="${amzn(n)}" target="_blank" rel="noopener">${xSVG}${n}</a>`).join('')}
+        </div>
+      </div>
+      <div class="shopsec">
+        <h5>✨ Popular add-ons</h5>
+        <div class="shoprow">
+          ${sug.map(q => `<a class="sha amzn" href="${amzn(q)}" target="_blank" rel="noopener" style="font-size:.72rem;padding:.22rem .55rem">${q}</a>`).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 function rndr(k,item){
   conf(k);
   const rp=document.getElementById(k+'-rp');
@@ -1145,7 +1210,7 @@ function rndr(k,item){
     document.getElementById(k+'-nm2').textContent=item.name;
     document.getElementById(k+'-tags').innerHTML=tg('📂 '+item.cat,'tb')+tg('⏱ '+item.dur,'tg')+tg('📍 '+item.where,'tgr');
     document.getElementById(k+'-how').innerHTML=`<strong>How to Play:</strong> ${item.how}`;
-    document.getElementById(k+'-need').innerHTML=`<strong style="display:block;margin-top:.42rem">🧺 What You Need:</strong> ${item.need}`;
+    document.getElementById(k+'-need').innerHTML=`<strong style="display:block;margin-top:.42rem">🧺 What You Need:</strong> ${item.need}` + actShopLinks(item);
   }
   if(type==='p'){
     document.getElementById(k+'-nm2').textContent=item.name;
