@@ -1,13 +1,13 @@
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<!-- saved from url=(0086)file:///C:/Users/josephvitale/Downloads/family-hq-LINKS-RESTORED-NO-DUP-NAV%20(1).html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Family HQ 🎡 — Philly · NYC · Houston · LA</title>
-<meta name="description" content="Family decision engine for Philadelphia, New York, Houston, and Los Angeles — activities, places, takeout, meal prep, and quick meals."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<meta name="description" content="Family decision engine for Philadelphia, New York, Houston, and Los Angeles — activities, places, takeout, meal prep, and quick meals.">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./Latest Family HQ File_files/css2" rel="stylesheet">
 <style>
 :root{--bg:#0d1117;--surface:#161b22;--surface2:#21262d;--border:#30363d;--text:#e6edf3;--muted:#8b949e;--radius:12px;--shadow:0 4px 24px rgba(0,0,0,.5)}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
@@ -232,6 +232,28 @@ footer a:hover{color:var(--text)}
 .sha.pri{font-weight:700}
 /* ================================ */
 
+
+/* ── Mobile-friendly City Dropdown ── */
+.city-select{display:none;margin-left:auto}
+.city-select select{
+  background:var(--surface);
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:.5rem .85rem;
+  font-size:.9rem;
+  font-weight:800;
+  max-width: 52vw;
+}
+@media(max-width:768px){
+  .city-tabs{display:none}
+  .city-select{display:block}
+  .city-select select{max-width: 62vw}
+}
+@media(max-width:420px){
+  .city-select select{max-width: 72vw}
+}
+
 </style>
 </head>
 <body>
@@ -240,34 +262,77 @@ footer a:hover{color:var(--text)}
   <div class="city-bar-top">
     <span class="city-brand">🎡 Family HQ</span>
     <div class="city-tabs">
-      <button class="ctab ct-ph active" onclick="switchCity('ph')">
+      <button class="ctab ct-ph active" onclick="switchCity(&#39;ph&#39;)">
         <span class="cdot"></span>
         <span class="city-emoji">🔔</span>
         <span class="city-name">Philadelphia</span>
       </button>
-      <button class="ctab ct-ny" onclick="switchCity('ny')">
+      <button class="ctab ct-ny" onclick="switchCity(&#39;ny&#39;)">
         <span class="cdot"></span>
         <span class="city-emoji">🗽</span>
         <span class="city-name">New York</span>
       </button>
-      <button class="ctab ct-ho" onclick="switchCity('ho')">
+      <button class="ctab ct-ho" onclick="switchCity(&#39;ho&#39;)">
         <span class="cdot"></span>
         <span class="city-emoji">🤠</span>
         <span class="city-name">Houston</span>
       </button>
-      <button class="ctab ct-la" onclick="switchCity('la')">
+      <button class="ctab ct-la" onclick="switchCity(&#39;la&#39;)">
         <span class="cdot"></span>
         <span class="city-emoji">🌴</span>
         <span class="city-name">Los Angeles</span>
       </button>
     </div>
+
+<div class="city-select">
+  <select id="citySelect" aria-label="Select city" onchange="switchCity(this.value)">
+    <option value="ph">🔔 Philadelphia — Greater Philadelphia Area</option>
+    <option value="ny">🗽 New York City — All Boroughs</option>
+    <option value="ho">🤠 Houston — Metro Area</option>
+    <option value="la">🌴 Los Angeles — Greater LA</option>
+  </select>
+</div>
+
   </div>
 </div>
 
-<div id="p-ph" class="cpanel active"></div>
-<div id="p-ny"  class="cpanel"></div>
-<div id="p-ho"  class="cpanel"></div>
-<div id="p-la"  class="cpanel"></div>
+<div id="p-ph" class="cpanel active"><section class="hero" style="background:radial-gradient(ellipse 80% 50% at 50% -20%,rgba(34,197,94,.12),transparent),linear-gradient(180deg,#0d1117,#0d1117)"><div class="hero-ey">Your Philly Family Decision Engine</div><h1><span style="background:linear-gradient(135deg,#22c55e,#86efac);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Stop Scrolling.</span> <span style="background:linear-gradient(135deg,#a855f7,#d8b4fe);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Start Spinning.</span> <span style="background:linear-gradient(135deg,#f97316,#fdba74);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Just Have Fun.</span></h1><p>Five spinners for Philly families — what to do, where to go, what to eat, what to prep, and what to cook fast.</p><div class="hcards"><a onclick="scrollToSection(&#39;ph-act&#39;)" class="hcard" style="cursor:pointer"><span class="ci">🎭</span><span>Screen-Free<br>Activities</span></a><a onclick="scrollToSection(&#39;ph-pl&#39;)" class="hcard" style="cursor:pointer"><span class="ci">🦁</span><span>Philadelphia<br>Adventures</span></a><a onclick="scrollToSection(&#39;ph-to&#39;)" class="hcard" style="cursor:pointer"><span class="ci">🍕</span><span>Philadelphia<br>Takeout</span></a><a onclick="scrollToSection(&#39;mp&#39;)" class="hcard" style="cursor:pointer"><span class="ci">🥗</span><span>Meal<br>Prep</span></a><a onclick="scrollToSection(&#39;qm&#39;)" class="hcard" style="cursor:pointer"><span class="ci">⚡</span><span>Quick<br>Meals</span></a></div></section><div class="page"><div id="ph-act" class="swrap">
+<div><div class="slbl">📵 No Screens Required</div><div class="stitle st-a">What Should We Do?</div><div class="sdesc">108 screen-free activities for kids of all ages.</div></div>
+<div class="wcard"><div class="spzone sz-a">
+<canvas class="ccanvas" id="ph-a-cf"></canvas>
+<div class="wwrap"><div class="wcw"><div class="wptr">▼</div><canvas id="ph-a-c" width="250" height="250"></canvas><div class="wctr" onclick="spin(&#39;ph-a&#39;)">🎭</div></div></div>
+<div class="nomatch" id="ph-a-nm">No results match your filters!</div>
+<button class="sbtn b-a" onclick="spin(&#39;ph-a&#39;)">🎲 Spin It!</button>
+</div>
+<div class="rpanel" id="ph-a-rp">
+<div class="rwbar"><div class="remoji" id="ph-a-em">🎭</div><div class="rname" id="ph-a-nm2"></div></div>
+<div class="rtags" id="ph-a-tags"></div><div class="rhow" id="ph-a-how"></div><div class="rhow" id="ph-a-need"></div>
+</div><div class="fzone"><div class="ftop"><span class="fhead">Filter Activities</span><div class="fright"><span class="cpill"><b id="ph-a-cnt">108</b> activities</span><button class="rbtn" onclick="rf(&#39;ph-a&#39;)">↺ Reset</button><button class="dlbtn" onclick="dl(&#39;ph-a&#39;)">⬇ Download</button></div></div><div class="filters"><div class="fg"><label>📂 Category</label><select id="ph-a-cat" onchange="uc(&#39;ph-a&#39;)"><option value="">All</option><option>Arts &amp; Crafts</option><option>Outdoor</option><option>Games</option><option>Science</option><option>Music</option><option>Cooking</option><option>Reading</option></select></div><div class="fg"><label>⏱ Duration</label><select id="ph-a-dur" onchange="uc(&#39;ph-a&#39;)"><option value="">Any</option><option>Under 15 min</option><option>15–30 min</option><option>30–60 min</option><option>1+ hours</option></select></div><div class="fg"><label>📍 Where</label><select id="ph-a-wh" onchange="uc(&#39;ph-a&#39;)"><option value="">Any</option><option>Indoors</option><option>Outdoors</option><option>Both</option></select></div></div></div></div></div><hr class="sdiv"><div id="ph-pl" class="swrap">
+<div><div class="slbl">📍 Greater Philadelphia Area</div><div class="stitle st-p">Where Should We Go?</div><div class="sdesc">32 kid-friendly destinations.</div></div>
+<div class="wcard"><div class="spzone sz-p">
+<canvas class="ccanvas" id="ph-p-cf"></canvas>
+<div class="wwrap"><div class="wcw"><div class="wptr">▼</div><canvas id="ph-p-c" width="250" height="250"></canvas><div class="wctr" onclick="spin(&#39;ph-p&#39;)">🦁</div></div></div>
+<div class="nomatch" id="ph-p-nm">No results match your filters!</div>
+<button class="sbtn b-p" onclick="spin(&#39;ph-p&#39;)">✨ Spin It!</button>
+</div>
+<div class="rpanel" id="ph-p-rp">
+<div class="rwbar"><div class="remoji" id="ph-p-em">🦁</div><div class="rname" id="ph-p-nm2"></div></div>
+<div class="rtags" id="ph-p-tags"></div><div class="rgrid"><div><div class="rlbl">Area</div><div class="rval" id="ph-p-area"></div></div><div><div class="rlbl">Drive Time</div><div class="rval" id="ph-p-drive"></div></div><div><div class="rlbl">Best For</div><div class="rval" id="ph-p-age"></div></div><div style="grid-column:1/-1"><div class="rlbl">About</div><div class="rval" id="ph-p-about"></div></div></div>
+</div><div class="fzone"><div class="ftop"><span class="fhead">Filter Places</span><div class="fright"><span class="cpill"><b id="ph-p-cnt">32</b> places</span><button class="rbtn" onclick="rf(&#39;ph-p&#39;)">↺ Reset</button><button class="dlbtn" onclick="dl(&#39;ph-p&#39;)">⬇ Download</button></div></div><div class="filters"><div class="fg"><label>📂 Category</label><select id="ph-p-cat" onchange="uc(&#39;ph-p&#39;)"><option value="">All</option><option>Museum</option><option>Park</option><option>Zoo/Aquarium</option><option>Entertainment</option><option>Nature</option></select></div><div class="fg"><label>🌤 Setting</label><select id="ph-p-set" onchange="uc(&#39;ph-p&#39;)"><option value="">Any</option><option>Indoor</option><option>Outdoor</option></select></div><div class="fg"><label>💰 Cost</label><select id="ph-p-co" onchange="uc(&#39;ph-p&#39;)"><option value="">Any</option><option>Free</option><option>$</option><option>$$</option><option>$$$</option></select></div><div class="fg"><label>👶 Age</label><select id="ph-p-ag" onchange="uc(&#39;ph-p&#39;)"><option value="">Any Age</option><option>Toddlers (0–3)</option><option>Kids (4–8)</option><option>Tweens (9–12)</option><option>Teens (13+)</option></select></div><div class="fg"><label>🚗 Drive</label><select id="ph-p-dr" onchange="uc(&#39;ph-p&#39;)"><option value="">Any</option><option>Under 15 min</option><option>15–30 min</option><option>30–60 min</option><option>60+ min</option></select></div><div class="fg"><label>📍 Area</label><select id="ph-p-ar" onchange="uc(&#39;ph-p&#39;)"><option value="">All Areas</option><option>Center City</option><option>North Philly</option><option>Suburbs</option><option>West Philly</option></select></div></div></div></div></div><hr class="sdiv"><div id="ph-to" class="swrap">
+<div><div class="slbl">🍕 Philadelphia Takeout &amp; Delivery</div><div class="stitle st-t">What Should We Eat Tonight?</div><div class="sdesc">106 restaurants for takeout or delivery.</div></div>
+<div class="wcard"><div class="spzone sz-t">
+<canvas class="ccanvas" id="ph-t-cf" width="1011" height="370"></canvas>
+<div class="wwrap"><div class="wcw"><div class="wptr">▼</div><canvas id="ph-t-c" width="250" height="250"></canvas><div class="wctr" onclick="spin(&#39;ph-t&#39;)">🍕</div></div></div>
+<div class="nomatch" id="ph-t-nm">No results match your filters!</div>
+<button class="sbtn b-t" onclick="spin(&#39;ph-t&#39;)">🎰 Spin It!</button>
+</div>
+<div class="rpanel show wf" id="ph-t-rp">
+<div class="rwbar"><div class="remoji wt" id="ph-t-em">🌮</div><div class="rname" id="ph-t-nm2">Lalo's Mexican</div></div>
+<div class="rtags" id="ph-t-tags"><span class="tag tb">🗺 South Philly</span><span class="tag tgr">🍽 Mexican</span><span class="tag tg">💰 $</span></div><div class="rgrid"><div><div class="rlbl">Neighborhood</div><div class="rval" id="ph-t-hood">South Philly</div></div><div><div class="rlbl">Cuisine</div><div class="rval" id="ph-t-cui">Mexican</div></div><div><div class="rlbl">Price</div><div class="rval" id="ph-t-pri">$ Budget-friendly</div></div><div style="grid-column:1/-1"><div class="rlbl">About</div><div class="rval" id="ph-t-abt">Authentic tacos, burritos, and tortas from a beloved South Philly family.</div></div></div>
+</div><div class="fzone"><div class="ftop"><span class="fhead">Filter Restaurants</span><div class="fright"><span class="cpill"><b id="ph-t-cnt">106</b> restaurants</span><button class="rbtn" onclick="rf(&#39;ph-t&#39;)">↺ Reset</button><button class="dlbtn" onclick="dl(&#39;ph-t&#39;)">⬇ Download</button></div></div><div class="filters"><div class="fg"><label>🗺 Neighborhood</label><select id="ph-t-hd" onchange="uc(&#39;ph-t&#39;)"><option value="">All</option><option>Center City</option><option>Chestnut Hill</option><option>Chinatown</option><option>Fishtown</option><option>Manayunk</option><option>North Philly</option><option>Northern Liberties</option><option>Old City</option><option>South Philly</option><option>West Philly</option></select></div><div class="fg"><label>🍽 Cuisine</label><select id="ph-t-cu" onchange="uc(&#39;ph-t&#39;)"><option value="">All</option><option>American</option><option>Cheesesteaks</option><option>Chinese</option><option>Indian</option><option>Italian</option><option>Korean</option><option>Malaysian</option><option>Mediterranean</option><option>Mexican</option><option>Pizza</option><option>Sushi</option><option>Thai</option></select></div><div class="fg"><label>💰 Price</label><select id="ph-t-pr" onchange="uc(&#39;ph-t&#39;)"><option value="">Any</option><option value="$">$ Budget</option><option value="$$">$$ Mid-range</option><option value="$$$">$$$ Splurge</option></select></div></div></div></div></div><div class="shared-meals-link"><div class="meals-note">↓ Meal Prep &amp; Quick Meals are shared below</div></div></div></div>
+<div id="p-ny" class="cpanel"></div>
+<div id="p-ho" class="cpanel"></div>
+<div id="p-la" class="cpanel"></div>
 
 
 <!-- ═══════════ SHARED MEAL PREP & QUICK MEALS ═══════════ -->
@@ -278,7 +343,29 @@ footer a:hover{color:var(--text)}
       <div style="font-size:1.1rem;font-weight:800;color:var(--text)">Meal Prep &amp; Quick Meals</div>
       <div style="font-size:.85rem;color:var(--muted);margin-top:.3rem">These spinners work the same no matter which city you're in</div>
     </div>
-    <div id="shared-meals-content" style="display:flex;flex-direction:column;gap:3rem"></div>
+    <div id="shared-meals-content" style="display:flex;flex-direction:column;gap:3rem"><div id="mp" class="swrap">
+<div><div class="slbl">🥗 Weekly Meal Prep</div><div class="stitle st-m">What Should We Meal Prep?</div><div class="sdesc">30 family-friendly meal prep ideas.</div></div>
+<div class="wcard"><div class="spzone sz-m">
+<canvas class="ccanvas" id="m-cf" width="1011" height="370"></canvas>
+<div class="wwrap"><div class="wcw"><div class="wptr">▼</div><canvas id="m-c" width="250" height="250"></canvas><div class="wctr" onclick="spin(&#39;m&#39;)">🥗</div></div></div>
+<div class="nomatch" id="m-nm">No results match your filters!</div>
+<button class="sbtn b-m" onclick="spin(&#39;m&#39;)">🍽 Spin It!</button>
+</div>
+<div class="rpanel show wf" id="m-rp">
+<div class="rwbar"><div class="remoji wt" id="m-em">🌯</div><div class="rname" id="m-nm2">Freezer Breakfast Burritos</div></div>
+<div class="rtags" id="m-tags"><span class="tag tgr">🍳 Breakfast</span><span class="tag tg">⏱ 1–2 hours</span><span class="tag to">🌡 Stovetop</span><span class="tag tb">🥦 Kid-Friendly</span><span class="tag tp">👨‍👩‍👧‍👦 5–6, 7+</span></div><div class="rdesc" id="m-desc">Make 12–16 burritos at once, wrap and freeze. Microwave 2 min for a hot school-morning breakfast.</div><div class="mings"><h5>🛒 Key Ingredients</h5><div class="ingwrap" id="m-ings"><a class="ipill ip-p" href="https://www.amazon.com/s?i=amazonfresh&amp;k=Large%20flour%20tortillas&amp;tag=phillyfamilyh-20" target="_blank" rel="noopener" title="Amazon Fresh"><span class="ipn">Large flour tortillas</span><span class="ipb"><span class="ipbtn">📦</span></span></a><a class="ipill ip-p" href="https://www.amazon.com/s?i=amazonfresh&amp;k=Eggs&amp;tag=phillyfamilyh-20" target="_blank" rel="noopener" title="Amazon Fresh"><span class="ipn">Eggs</span><span class="ipb"><span class="ipbtn">📦</span></span></a><a class="ipill ip-p" href="https://www.amazon.com/s?i=amazonfresh&amp;k=Breakfast%20sausage&amp;tag=phillyfamilyh-20" target="_blank" rel="noopener" title="Amazon Fresh"><span class="ipn">Breakfast sausage</span><span class="ipb"><span class="ipbtn">📦</span></span></a><a class="ipill ip-p" href="https://www.amazon.com/s?i=amazonfresh&amp;k=Cheddar%20cheese&amp;tag=phillyfamilyh-20" target="_blank" rel="noopener" title="Amazon Fresh"><span class="ipn">Cheddar cheese</span><span class="ipb"><span class="ipbtn">📦</span></span></a><a class="ipill ip-p" href="https://www.amazon.com/s?i=amazonfresh&amp;k=Bell%20pepper&amp;tag=phillyfamilyh-20" target="_blank" rel="noopener" title="Amazon Fresh"><span class="ipn">Bell pepper</span><span class="ipb"><span class="ipbtn">📦</span></span></a><a class="ipill ip-p" href="https://www.amazon.com/s?i=amazonfresh&amp;k=Onion&amp;tag=phillyfamilyh-20" target="_blank" rel="noopener" title="Amazon Fresh"><span class="ipn">Onion</span><span class="ipb"><span class="ipbtn">📦</span></span></a><a class="ipill ip-p" href="https://www.amazon.com/s?i=amazonfresh&amp;k=Salsa&amp;tag=phillyfamilyh-20" target="_blank" rel="noopener" title="Amazon Fresh"><span class="ipn">Salsa</span><span class="ipb"><span class="ipbtn">📦</span></span></a></div></div><div class="msteps" id="m-steps"><div class="mstep"><div class="snum sn-p">1</div><div>Scramble eggs with sautéed sausage, peppers, and onion. Season well.</div></div><div class="mstep"><div class="snum sn-p">2</div><div>Lay out tortillas. Layer egg mixture, cheese, and salsa.</div></div><div class="mstep"><div class="snum sn-p">3</div><div>Roll tightly, wrap in foil, and freeze. Label with date.</div></div></div><div class="shopwrap" id="m-shop" style="display: block;"><div class="shopsec"><h5>📦 Amazon Fresh</h5><div class="shoprow" id="m-afl"><a class="sha af" href="https://www.amazon.com/s?i=amazonfresh&amp;k=Large%20flour%20tortillas%20Eggs%20Breakfast%20sausage%20Cheddar%20cheese%20Bell%20pepper&amp;tag=phillyfamilyh-20" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>📦 Shop all on Amazon Fresh</a><a class="sha af" href="https://www.amazon.com/s?i=amazonfresh&amp;k=Large%20flour%20tortillas&amp;tag=phillyfamilyh-20" target="_blank" rel="noopener" style="font-size:.72rem;padding:.22rem .55rem">Large flour tortillas</a><a class="sha af" href="https://www.amazon.com/s?i=amazonfresh&amp;k=Eggs&amp;tag=phillyfamilyh-20" target="_blank" rel="noopener" style="font-size:.72rem;padding:.22rem .55rem">Eggs</a><a class="sha af" href="https://www.amazon.com/s?i=amazonfresh&amp;k=Breakfast%20sausage&amp;tag=phillyfamilyh-20" target="_blank" rel="noopener" style="font-size:.72rem;padding:.22rem .55rem">Breakfast sausage</a><a class="sha af" href="https://www.amazon.com/s?i=amazonfresh&amp;k=Cheddar%20cheese&amp;tag=phillyfamilyh-20" target="_blank" rel="noopener" style="font-size:.72rem;padding:.22rem .55rem">Cheddar cheese</a></div></div><div class="shopsec"><h5>🔧 Kitchen Gear</h5><div class="shoprow" id="m-gear"><a class="sha amzn" href="https://www.amazon.com/s?k=animal%20shaped%20pancake%20egg%20mold%20kids%20breakfast&amp;tag=phillyfamilyh-20" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>🐶 Animal-Shape Pancake Mold Set</a><a class="sha amzn" href="https://www.amazon.com/s?k=large%20non%20stick%20skillet%2012%20inch%20ceramic&amp;tag=phillyfamilyh-20" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>🥚 Large Non-Stick Skillet (12-in)</a><a class="sha amzn" href="https://www.amazon.com/s?k=freezer%20meal%20prep%20labels%20waterproof%20markers&amp;tag=phillyfamilyh-20" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>🧊 Freezer Meal Labels &amp; Markers</a></div></div></div>
+</div><div class="fzone"><div class="ftop"><span class="fhead">Filter Meals</span><div class="fright"><span class="cpill"><b id="m-cnt">30</b> meals</span><button class="rbtn" onclick="rf(&#39;m&#39;)">↺ Reset</button><button class="dlbtn" onclick="dl(&#39;m&#39;)">⬇ Download</button></div></div><div class="filters"><div class="fg"><label>👨‍👩‍👧‍👦 Family Size</label><select id="m-sz" onchange="uc(&#39;m&#39;)"><option value="">Any</option><option value="small">Small (1–2)</option><option value="medium">Medium (3–4)</option><option value="large">Large (5–6)</option><option value="xl">XL (7+)</option></select></div><div class="fg"><label>🥦 Dietary</label><select id="m-di" onchange="uc(&#39;m&#39;)"><option value="">Any</option><option>Vegetarian</option><option>Vegan</option><option>Gluten-Free</option><option>Kid-Friendly</option></select></div><div class="fg"><label>⏱ Prep Time</label><select id="m-ti" onchange="uc(&#39;m&#39;)"><option value="">Any</option><option>Under 30 min</option><option>30–60 min</option><option>1–2 hours</option><option>2+ hours</option></select></div><div class="fg"><label>🍳 Type</label><select id="m-ty" onchange="uc(&#39;m&#39;)"><option value="">Any</option><option>Breakfast</option><option>Lunch</option><option>Dinner</option><option>Snacks</option></select></div><div class="fg"><label>🌡 Method</label><select id="m-me" onchange="uc(&#39;m&#39;)"><option value="">Any</option><option>Sheet Pan</option><option>Slow Cooker</option><option>Instant Pot</option><option>Stovetop</option><option>No Cook</option><option>Oven</option></select></div></div></div></div></div><hr class="sdiv"><div id="qm" class="swrap">
+<div><div class="slbl">⚡ 30 Minutes or Less</div><div class="stitle st-q">What's for Dinner — Fast?</div><div class="sdesc">50 quick weeknight meals.</div></div>
+<div class="wcard"><div class="spzone sz-q">
+<canvas class="ccanvas" id="q-cf"></canvas>
+<div class="wwrap"><div class="wcw"><div class="wptr">▼</div><canvas id="q-c" width="250" height="250"></canvas><div class="wctr" onclick="spin(&#39;q&#39;)">⚡</div></div></div>
+<div class="nomatch" id="q-nm">No results match your filters!</div>
+<button class="sbtn b-q" onclick="spin(&#39;q&#39;)">🍴 Spin It!</button>
+</div>
+<div class="rpanel" id="q-rp">
+<div class="rwbar"><div class="remoji" id="q-em">⚡</div><div class="rname" id="q-nm2"></div></div>
+<div class="rtags" id="q-tags"></div><div class="rdesc" id="q-desc"></div><div class="mings"><h5>🛒 What You Need</h5><div class="ingwrap" id="q-ings"></div></div><div class="msteps" id="q-steps"></div><div class="shopwrap" id="q-shop" style="display:none"><div class="shopsec"><h5>📦 Amazon Fresh</h5><div class="shoprow" id="q-afl"></div></div><div class="shopsec"><h5>🔧 Kitchen Gear</h5><div class="shoprow" id="q-gear"></div></div></div>
+</div><div class="fzone"><div class="ftop"><span class="fhead">Filter Quick Meals</span><div class="fright"><span class="cpill"><b id="q-cnt">50</b> meals</span><button class="rbtn" onclick="rf(&#39;q&#39;)">↺ Reset</button><button class="dlbtn" onclick="dl(&#39;q&#39;)">⬇ Download</button></div></div><div class="filters"><div class="fg"><label>👨‍👩‍👧‍👦 Family Size</label><select id="q-sz" onchange="uc(&#39;q&#39;)"><option value="">Any</option><option value="small">Small (1–2)</option><option value="medium">Medium (3–4)</option><option value="large">Large (5–6)</option><option value="xl">XL (7+)</option></select></div><div class="fg"><label>🥦 Dietary</label><select id="q-di" onchange="uc(&#39;q&#39;)"><option value="">Any</option><option>Vegetarian</option><option>Gluten-Free</option><option>Kid-Friendly</option><option>Vegan</option></select></div><div class="fg"><label>🌡 Method</label><select id="q-me" onchange="uc(&#39;q&#39;)"><option value="">Any</option><option>Stovetop</option><option>Sheet Pan</option><option>No Cook</option><option>Air Fryer</option></select></div></div></div></div></div></div>
   </div>
 </div>
 <footer>
@@ -286,10 +373,10 @@ footer a:hover{color:var(--text)}
   <p>Made with ❤️ for families everywhere</p>
   <p style="font-size:.7rem;opacity:.7;max-width:720px;margin:.75rem auto 0">As an Amazon Associate, we earn from qualifying purchases.</p>
   <div class="flinks">
-    <a onclick="switchCity('ph')">🔔 Philadelphia</a>
-    <a onclick="switchCity('ny')">🗽 New York</a>
-    <a onclick="switchCity('ho')">🤠 Houston</a>
-    <a onclick="switchCity('la')">🌴 Los Angeles</a>
+    <a onclick="switchCity(&#39;ph&#39;)">🔔 Philadelphia</a>
+    <a onclick="switchCity(&#39;ny&#39;)">🗽 New York</a>
+    <a onclick="switchCity(&#39;ho&#39;)">🤠 Houston</a>
+    <a onclick="switchCity(&#39;la&#39;)">🌴 Los Angeles</a>
   </div>
 </footer>
 
@@ -303,6 +390,7 @@ function switchCity(c){
   document.querySelectorAll('.ctab').forEach(t=>t.classList.remove('active'));
   document.getElementById('p-'+c).classList.add('active');
   document.querySelector('.ct-'+c).classList.add('active');
+ const sel=document.getElementById('citySelect'); if(sel) sel.value=c;
   window.scrollTo({top:0,behavior:'smooth'});
   if(!built.has(c)){buildCity(c);built.add(c);}
 }
@@ -704,7 +792,19 @@ takeout:[
 {name:"The Commodore",emoji:"🍗",hood:"Brooklyn",cuisine:"American",price:"$",about:"Williamsburg dive bar with iconic fried chicken and the cheapest drinks in the neighborhood."},
 {name:"Bánh Mì Saigon",emoji:"🥖",hood:"Chinatown",cuisine:"Vietnamese",price:"$",about:"The best bánh mì in New York City — tiny shop, enormous flavors."},
 {name:"Wayan",emoji:"🌿",hood:"Nolita",cuisine:"Indonesian",price:"$$$",about:"Modern Indonesian tasting menu from the team behind Bâtard — stunning and surprising."},
-{name:"Manhatta",emoji:"🥂",hood:"Financial District",cuisine:"American",price:"$$$",about:"60th-floor New American with some of the best views and food in Lower Manhattan."}
+{name:"Manhatta",emoji:"🥂",hood:"Financial District",cuisine:"American",price:"$$$",about:"60th-floor New American with some of the best views and food in Lower Manhattan."},,
+ {name:"Golden Diner",emoji:"🥞",hood:"Chinatown",cuisine:"Diner",price:"$$",about:"Classic diner favorites with a NYC twist — great for takeout."},
+ {name:"Thai Diner",emoji:"🌶️",hood:"Nolita",cuisine:"Thai",price:"$$",about:"All-day Thai diner hits that travel well."},
+ {name:"Los Tacos No. 1",emoji:"🌮",hood:"Chelsea Market",cuisine:"Mexican",price:"$",about:"Fast, fresh tacos and quesadillas — perfect pickup."},
+ {name:"Prince Street Pizza",emoji:"🍕",hood:"SoHo",cuisine:"Pizza",price:"$",about:"Iconic square slices and late-night pies."},
+ {name:"L'Industrie Pizzeria",emoji:"🍕",hood:"West Village",cuisine:"Pizza",price:"$$",about:"Burrata slice legend — great for takeout."},
+ {name:"Hanoi House",emoji:"🍜",hood:"East Village",cuisine:"Vietnamese",price:"$$",about:"Hanoi-style pho and small plates that deliver well."},
+ {name:"Jajaja Mexicana",emoji:"🥑",hood:"West Village",cuisine:"Mexican",price:"$$",about:"Plant-based Mexican comfort food and bowls."},
+ {name:"KazuNori: The Original Hand Roll Bar",emoji:"🍣",hood:"NoMad",cuisine:"Sushi",price:"$$",about:"Hand roll sets that are ideal for pickup."},
+ {name:"Gage & Tollner",emoji:"🦪",hood:"Downtown Brooklyn",cuisine:"American",price:"$$$",about:"Classic Brooklyn institution with takeout-friendly mains."},
+ {name:"The Migrant Kitchen (Upper West Side)",emoji:"🥙",hood:"Upper West Side",cuisine:"Middle Eastern",price:"$$",about:"Bowls, wraps, and plates that travel well."},
+ {name:"Roberto's",emoji:"🍝",hood:"Bronx",cuisine:"Italian",price:"$$$",about:"Old-school Italian — great for a special takeout night."},
+ {name:"Kisa",emoji:"🍚",hood:"Lower East Side",cuisine:"Korean",price:"$$",about:"Modern Korean comfort food for pickup."}
 ],},
 ho:{id:'ho',name:'Houston',emoji:'🤠',heroColor:'rgba(249,115,22,.12)',tagline:'Your Houston Family Decision Engine',desc:'Five spinners for Houston families — from NASA to BBQ, Space City has everything your family needs.',plIcon:'🤠',toIcon:'🍖',plLabel:'🤠 Houston & Surrounding Area',toLabel:'🍖 Houston Takeout & Delivery',
 places:[
@@ -989,7 +1089,15 @@ takeout:[
 {name:"Son of a Gun",emoji:"🦞",hood:"West Hollywood",cuisine:"Seafood",price:"$$$",about:"Seafood-focused American with the best fried chicken sandwich in the city."},
 {name:"Odys + Penelope",emoji:"🔥",hood:"Mid-City",cuisine:"American",price:"$$$",about:"Live-fire meat restaurant on La Brea — the whole roasted pig is extraordinary."},
 {name:"Shibumi",emoji:"🍱",hood:"Downtown",cuisine:"Japanese",price:"$$$",about:"David Schlosser's intimate kappo restaurant in a historic Downtown space."},
-{name:"Cofax Coffee",emoji:"☕",hood:"Fairfax",cuisine:"Café",price:"$",about:"Fairfax coffee shop with outstanding breakfast sandwiches and breakfast burritos."}
+{name:"Cofax Coffee",emoji:"☕",hood:"Fairfax",cuisine:"Café",price:"$",about:"Fairfax coffee shop with outstanding breakfast sandwiches and breakfast burritos."},,
+ {name:"The Apple Pan",emoji:"🍔",hood:"West LA",cuisine:"American",price:"$$",about:"Classic LA burgers and pie — great for takeout."},
+ {name:"The Factory Kitchen",emoji:"🍝",hood:"Downtown",cuisine:"Italian",price:"$$$",about:"Italian pastas and mains that hold up well to go."},
+ {name:"Sun Nong Dan",emoji:"🍲",hood:"Koreatown",cuisine:"Korean",price:"$$",about:"Comforting Korean soups and braises for delivery/pickup."},
+ {name:"Cassell's Hamburgers",emoji:"🍔",hood:"Koreatown",cuisine:"American",price:"$$",about:"Old-school burgers and shakes."},
+ {name:"Kang Kang Food Court",emoji:"🥟",hood:"Alhambra",cuisine:"Chinese",price:"$",about:"Taiwanese/Chinese food court favorites for pickup."},
+ {name:"Azay",emoji:"🍱",hood:"Little Tokyo",cuisine:"Japanese",price:"$$",about:"Japanese comfort food and bento-style dishes."},
+ {name:"OyBar",emoji:"🍗",hood:"Studio City",cuisine:"American",price:"$$",about:"Neighborhood comfort food that travels well."},
+ {name:"AKASHA",emoji:"🥗",hood:"Culver City",cuisine:"American",price:"$$",about:"California-American menu with solid takeout options."}
 ],},
 };
 
@@ -1010,6 +1118,22 @@ const MP=[
   {name:"Mediterranean Chicken Bowls",emoji:"🫒",sizes:["medium","large"],diet:"Gluten-Free",time:"30–60 min",type:"Lunch",method:"Oven",desc:"Greek-marinated chicken over roasted tomatoes, cucumber, olives, and feta. Fresh and satisfying every day.",ingredients:["Chicken breasts","Greek yogurt","Lemon","Garlic","Oregano","Cherry tomatoes","Cucumber","Kalamata olives","Feta"],steps:["Marinate chicken in yogurt, lemon, garlic, and oregano for 1 hour.","Roast at 400°F for 25–30 min. Slice and cool.","Divide into containers with grains and veggies. Pack dressing separately."],shopLinks:[{label:"🥗 Divided Meal Prep Bowls (5-pk)",q:"divided meal prep containers 3 compartment 5 pack"},{label:"🫙 Leak-Proof Dressing Containers",q:"small leak proof salad dressing containers meal prep"},{label:"🔪 Garlic Press",q:"garlic press stainless steel herb mincer"}]},
   {name:"Stovetop Oatmeal Packets",emoji:"🌾",sizes:["small","medium","large","xl"],diet:"Vegan",time:"Under 30 min",type:"Breakfast",method:"No Cook",desc:"Pre-mix dry ingredients into individual bags. Weekday oatmeal is just 'add boiling water and stir.'",ingredients:["Rolled oats","Brown sugar","Cinnamon","Salt","Chia seeds","Flaxseed","Dried cranberries","Walnuts"],steps:["Mix oats, sugar, cinnamon, salt, seeds, and dried fruit into labeled bags.","Store in pantry up to 2 weeks.","To cook: pour bag into bowl, add 1 cup boiling water, stir, cover 3 min."],shopLinks:[{label:"🚂 Train & Vehicle Waffle Maker",q:"vehicle train car waffle maker kids breakfast"},{label:"🫙 Reusable Snack Bags (10-pk)",q:"reusable zip snack bags set food safe BPA free"},{label:"🥣 Kids Breakfast Bowl with Lid",q:"kids breakfast bowl with lid handle microwave safe"}]},
   {name:"Sheet Pan Salmon & Asparagus",emoji:"🐟",sizes:["small","medium"],diet:"Gluten-Free",time:"Under 30 min",type:"Dinner",method:"Sheet Pan",desc:"Elegant, quick, and healthy. Salmon and asparagus roast together in 20 minutes — one pan, easy cleanup.",ingredients:["Salmon fillets","Asparagus","Olive oil","Lemon","Garlic","Dill","Salt","Pepper"],steps:["Preheat oven to 400°F. Line sheet pan with foil.","Place salmon and asparagus on pan. Drizzle with olive oil, lemon, garlic, dill.","Roast 18–20 min until salmon flakes easily."],shopLinks:[{label:"🍳 Non-Stick Sheet Pan Set",q:"non stick sheet pan set baking roasting"},{label:"🐟 Fish Spatula",q:"fish spatula flexible slotted turner stainless steel"},{label:"🫙 Olive Oil Dispenser Bottle",q:"olive oil dispenser bottle glass kitchen pour"}]},
+ {name:"Sheet Pan Teriyaki Chicken & Broccoli",emoji:"🍗",sizes:["medium","large","xl"],diet:"Kid-Friendly",time:"30–60 min",type:"Dinner",method:"Sheet Pan",desc:"Sweet-and-savory teriyaki chicken with broccoli and rice — prep once, reheat all week.",ingredients:["Chicken thighs","Broccoli","Teriyaki sauce","Garlic","Ginger","Sesame seeds","Rice"],steps:["Preheat oven to 425°F and line a sheet pan.","Toss chicken and broccoli with teriyaki, garlic, and ginger; spread evenly.","Roast 20–25 min; portion over rice and sprinkle sesame seeds."],shopLinks:[{label:"🍳 Sheet Pan Set",q:"heavy duty rimmed baking sheet pan set"},{label:"🍚 Rice Storage Containers",q:"meal prep containers with lids set"},{label:"🧄 Garlic Press",q:"garlic press stainless steel"}]},
+ {name:"Turkey & Veggie Breakfast Sandwiches (Freezer)",emoji:"🥪",sizes:["medium","large","xl"],diet:"Kid-Friendly",time:"1–2 hours",type:"Breakfast",method:"Oven",desc:"Make a batch of breakfast sandwiches, wrap, and freeze for grab-and-go mornings.",ingredients:["English muffins","Eggs","Turkey sausage patties","Cheddar cheese","Spinach","Butter"],steps:["Bake or scramble eggs; cook turkey sausage patties.","Assemble muffins with egg, cheese, sausage, and spinach.","Wrap individually and freeze; reheat 60–90 seconds in microwave."],shopLinks:[{label:"📦 Foil Sandwich Wraps",q:"foil sandwich wrap papers"},{label:"🧊 Freezer Labels",q:"freezer labels waterproof"},{label:"🍳 Nonstick Sheet Pan",q:"non stick baking sheet pan"}]},
+ {name:"Greek Pasta Salad (Big Batch)",emoji:"🥗",sizes:["medium","large","xl"],diet:"Vegetarian",time:"30–60 min",type:"Lunch",method:"Stovetop",desc:"Cold pasta salad that holds up for days — perfect lunch boxes and quick sides.",ingredients:["Rotini pasta","Cucumber","Cherry tomatoes","Kalamata olives","Feta","Olive oil","Lemon","Oregano"],steps:["Cook pasta, rinse cold, and drain well.","Mix veggies, feta, olives; toss with olive oil, lemon, and oregano.","Portion into containers; chill at least 1 hour before serving."],shopLinks:[{label:"🥗 Large Mixing Bowl",q:"large mixing bowl set"},{label:"📦 Meal Prep Containers",q:"glass meal prep containers with lids"},{label:"🫙 Dressing Containers",q:"small leak proof dressing containers"}]},
+ {name:"Instant Pot Shredded Salsa Chicken",emoji:"🍅",sizes:["medium","large","xl"],diet:"Gluten-Free",time:"Under 30 min",type:"Dinner",method:"Instant Pot",desc:"Ultra-fast shredded chicken for tacos, bowls, wraps, or salads all week.",ingredients:["Chicken breasts","Salsa","Chicken broth","Cumin","Garlic powder","Lime"],steps:["Add chicken, salsa, broth, and spices to Instant Pot.","Pressure cook 10–12 min; quick release.","Shred, squeeze lime, and portion for multiple meals."],shopLinks:[{label:"⚡ Instant Pot Liners",q:"instant pot liners disposable"},{label:"🍗 Meat Shredder Claws",q:"meat shredder claws pulled chicken"},{label:"📦 Storage Containers",q:"meal prep containers set"}]},
+ {name:"Roasted Veggie & Hummus Snack Boxes",emoji:"🥕",sizes:["small","medium","large"],diet:"Vegan",time:"30–60 min",type:"Snacks",method:"Oven",desc:"Roast a tray of veggies and build snack boxes with hummus, crackers, and fruit.",ingredients:["Carrots","Bell peppers","Zucchini","Olive oil","Salt","Hummus","Crackers","Grapes"],steps:["Roast chopped veggies at 425°F for 18–22 min with olive oil and salt.","Cool completely, then portion veggies into containers.","Add hummus cup, crackers, and fruit for ready-to-grab snacks."],shopLinks:[{label:"📦 Bento Snack Boxes",q:"kids bento snack boxes compartments"},{label:"🧊 Small Dip Containers",q:"small dip containers with lids reusable"},{label:"🍳 Sheet Pan",q:"heavy duty rimmed baking sheet"}]},
+ {name:"BBQ Pulled Pork (Slow Cooker)",emoji:"🍖",sizes:["large","xl"],diet:"Kid-Friendly",time:"2+ hours",type:"Dinner",method:"Slow Cooker",desc:"Set-and-forget pulled pork for sandwiches, bowls, or tacos — freezes beautifully.",ingredients:["Pork shoulder","BBQ sauce","Onion","Apple cider vinegar","Garlic powder","Salt","Buns"],steps:["Add pork, onion, BBQ sauce, vinegar, and spices to slow cooker.","Cook LOW 8–10 hours (or HIGH 5–6) until shreddable.","Shred, mix with juices, and portion for meals/freezer."],shopLinks:[{label:"🫕 Slow Cooker 8 Qt",q:"8 quart programmable slow cooker"},{label:"🍗 Meat Shredder Claws",q:"meat shredder claws"},{label:"🧊 Freezer Containers",q:"freezer food storage containers with lids"}]},
+ {name:"Couscous Veggie Bowls (No-Cook Prep)",emoji:"🍋",sizes:["small","medium","large"],diet:"Vegetarian",time:"Under 30 min",type:"Lunch",method:"No Cook",desc:"Quick couscous base + chopped veggies; add protein of choice during the week.",ingredients:["Couscous","Boiling water","Cucumber","Cherry tomatoes","Chickpeas","Lemon","Olive oil","Parsley"],steps:["Pour boiling water over couscous, cover 5 min, then fluff.","Mix in chopped veggies, chickpeas, lemon, olive oil, and parsley.","Portion into bowls; add feta or chicken when serving (optional)."],shopLinks:[{label:"🥗 Divided Bowls",q:"divided meal prep bowls with lids"},{label:"🫙 Leak-Proof Dressing Cups",q:"leak proof dressing containers"},{label:"🥄 Measuring Cup Set",q:"measuring cups and spoons set"}]},
+ {name:"Baked Chicken Parmesan Meatballs",emoji:"🧀",sizes:["medium","large","xl"],diet:"Kid-Friendly",time:"1–2 hours",type:"Dinner",method:"Oven",desc:"Chicken parm flavors in meatball form — great with pasta, subs, or zucchini noodles.",ingredients:["Ground chicken","Breadcrumbs","Parmesan","Egg","Garlic","Italian seasoning","Marinara sauce","Mozzarella"],steps:["Mix chicken, breadcrumbs, parmesan, egg, garlic, and seasoning.","Roll meatballs and bake at 400°F for 18–20 min.","Simmer in marinara, top with mozzarella, and portion for the week."],shopLinks:[{label:"🍳 Half-Sheet Pans",q:"half sheet baking pan set"},{label:"⚽ Cookie Scoop",q:"cookie scoop medium size"},{label:"📦 Glass Containers",q:"glass meal prep containers lids"}]},
+ {name:"Tuna or Chickpea Salad Jars",emoji:"🫙",sizes:["small","medium","large"],diet:"Gluten-Free",time:"Under 30 min",type:"Lunch",method:"No Cook",desc:"Protein-packed salad in jars — dump into a bowl when ready to eat.",ingredients:["Tuna (or chickpeas)","Greek yogurt (or mayo)","Celery","Red onion","Dijon mustard","Lemon","Salt","Pepper"],steps:["Mix tuna (or mashed chickpeas) with yogurt/mayo, mustard, lemon, salt, pepper.","Stir in diced celery and onion.","Portion into jars; serve on greens, crackers, or bread."],shopLinks:[{label:"🫙 Wide Mouth Jars",q:"wide mouth mason jars 16 oz"},{label:"🥄 Mini Spatulas",q:"mini silicone spatula set"},{label:"📦 Lunch Containers",q:"lunch containers with compartments"}]},
+ {name:"Beef & Broccoli Stir-Fry Kits",emoji:"🥦",sizes:["medium","large","xl"],diet:"Kid-Friendly",time:"30–60 min",type:"Dinner",method:"Stovetop",desc:"Prep chopped beef, sauce, and veggies so dinner cooks in 10 minutes mid-week.",ingredients:["Flank steak","Broccoli","Soy sauce","Brown sugar","Garlic","Ginger","Cornstarch","Rice"],steps:["Slice beef thin; mix sauce (soy, sugar, garlic, ginger, cornstarch).","Portion beef + sauce in bags; portion broccoli separately.","Cook stir-fry fast on weeknight; serve over rice."],shopLinks:[{label:"🥢 Wok",q:"carbon steel wok flat bottom"},{label:"🧊 Freezer Bags",q:"freezer zip bags gallon"},{label:"🍚 Rice Cooker",q:"rice cooker small"}]},
+ {name:"Baked Oatmeal Squares",emoji:"🍓",sizes:["small","medium","large"],diet:"Vegetarian",time:"30–60 min",type:"Breakfast",method:"Oven",desc:"Sliceable baked oatmeal — reheat like a bar for quick breakfasts and snacks.",ingredients:["Rolled oats","Milk","Eggs","Banana","Baking powder","Cinnamon","Maple syrup","Berries"],steps:["Mix all ingredients and pour into greased baking dish.","Bake at 375°F for 30–35 min until set.","Cool, slice into squares, and refrigerate or freeze."],shopLinks:[{label:"🍰 Glass Baking Dish",q:"9x13 glass baking dish"},{label:"🧊 Freezer Wrap",q:"parchment paper sheets"},{label:"🫙 Maple Syrup Dispenser",q:"maple syrup dispenser bottle"}]},
+ {name:"Instant Pot Butter Chicken (Mild)",emoji:"🍛",sizes:["medium","large","xl"],diet:"Kid-Friendly",time:"30–60 min",type:"Dinner",method:"Instant Pot",desc:"Mild, creamy butter chicken that kids love — portion with rice for lunches.",ingredients:["Chicken thighs","Tomato sauce","Greek yogurt","Butter","Garam masala","Garlic","Ginger","Rice"],steps:["Add chicken, tomato sauce, spices, garlic, and ginger to Instant Pot.","Pressure cook 10 min; quick release.","Stir in butter and yogurt; portion with rice."],shopLinks:[{label:"⚡ Instant Pot 6 Qt",q:"instant pot 6 quart"},{label:"🍚 Rice Cooker",q:"rice cooker compact"},{label:"📦 Meal Prep Containers",q:"meal prep containers microwave safe"}]},
+ {name:"Sheet Pan Lemon Herb Chicken & Potatoes",emoji:"🍋",sizes:["medium","large","xl"],diet:"Gluten-Free",time:"30–60 min",type:"Dinner",method:"Sheet Pan",desc:"Lemony chicken and crispy potatoes roasted together — perfect reheated lunches.",ingredients:["Chicken thighs","Potatoes","Lemon","Olive oil","Garlic","Italian seasoning","Salt","Pepper"],steps:["Preheat oven to 425°F and line a sheet pan.","Toss chicken and potatoes with oil, lemon, garlic, and seasoning.","Roast 30–35 min until chicken is 165°F; portion for the week."],shopLinks:[{label:"🍳 Sheet Pan",q:"heavy duty rimmed baking sheet pan"},{label:"🌡️ Meat Thermometer",q:"instant read meat thermometer"},{label:"📦 Meal Prep Containers",q:"glass meal prep containers with lids"}]},
+ {name:"Freezer Pancake Bites",emoji:"🥞",sizes:["small","medium","large"],diet:"Vegetarian",time:"30–60 min",type:"Breakfast",method:"Oven",desc:"Mini pancakes baked in a muffin tin — freeze and reheat for instant breakfasts.",ingredients:["Pancake mix","Milk","Eggs","Maple syrup","Berries","Butter"],steps:["Preheat oven to 375°F and grease a mini muffin pan.","Mix batter; pour into pan and add berries.","Bake 12–14 min; cool, freeze, and reheat 30–45 sec."],shopLinks:[{label:"🧁 Mini Muffin Pan",q:"mini muffin pan nonstick"},{label:"🧊 Freezer Bags",q:"freezer zip bags quart"},{label:"🥣 Mixing Bowl Set",q:"mixing bowls set"}]},
+ {name:"Slow Cooker Marinara Sauce (Big Batch)",emoji:"🍝",sizes:["medium","large","xl"],diet:"Vegan",time:"2+ hours",type:"Dinner",method:"Slow Cooker",desc:"Make a huge batch of marinara and freeze in portions for pasta, meatballs, and pizza nights.",ingredients:["Crushed tomatoes","Onion","Garlic","Olive oil","Basil","Oregano","Salt","Pepper"],steps:["Add all ingredients to slow cooker and stir.","Cook LOW 6–8 hours (or HIGH 3–4) until rich.","Blend if desired; portion and freeze flat in bags."],shopLinks:[{label:"🫕 Slow Cooker",q:"programmable slow cooker 6 quart"},{label:"🧊 Freezer Bags",q:"freezer bags gallon"},{label:"🥣 Immersion Blender",q:"immersion blender hand held"}]}
+
 ];
 
 /* ── SHARED QUICK MEALS (12) ── */
@@ -1034,6 +1158,37 @@ const QM=[
   {name:"White Bean & Kale Soup",emoji:"🫘",sizes:["medium","large","xl"],diet:"Vegan",method:"Stovetop",desc:"Hearty Italian-style soup with creamy white beans and sturdy kale. Ready in 30 minutes.",ingredients:["White beans","Kale","Garlic","Onion","Vegetable broth","Diced tomatoes","Olive oil","Italian seasoning","Parmesan rind"],steps:["Sauté onion and garlic in olive oil 5 min.","Add broth, tomatoes, beans, and parmesan rind. Simmer 15 min.","Add chopped kale and cook 5 more min. Season and serve with crusty bread."],shopLinks:[{label:"🍲 Dutch Oven 6-Qt",q:"dutch oven 6 quart enameled cast iron"},{label:"🫘 Dried White Beans Bulk",q:"dried cannellini beans bulk bag"}]},
   {name:"Caprese Pasta Salad",emoji:"🍅",sizes:["medium","large"],diet:"Vegetarian",method:"No Cook",desc:"Fresh summer pasta salad with mozzarella, tomatoes, and basil. Zero cooking needed.",ingredients:["Rotini pasta","Fresh mozzarella","Cherry tomatoes","Fresh basil","Olive oil","Balsamic glaze","Salt","Pepper"],steps:["Cook pasta per package. Rinse cold and drain well.","Toss with olive oil, halved tomatoes, mozzarella pearls, and torn basil.","Drizzle with balsamic glaze and season generously."],shopLinks:[{label:"🥗 Large Salad Bowl with Lid",q:"large salad bowl with lid meal prep"},{label:"🧴 Balsamic Glaze Bottle",q:"balsamic glaze reduction bottle"}]},
   {name:"Shakshuka",emoji:"🍳",sizes:["small","medium"],diet:"Vegetarian",method:"Stovetop",desc:"Eggs poached in a spiced tomato and pepper sauce. Great for breakfast, lunch, or dinner.",ingredients:["Eggs","Crushed tomatoes","Bell peppers","Onion","Garlic","Cumin","Paprika","Cayenne","Feta","Fresh parsley"],steps:["Sauté onion and peppers 5 min. Add garlic and spices, cook 1 min.","Add crushed tomatoes. Simmer 10 min.","Create wells and crack eggs in. Cover and cook 5–8 min until set. Top with feta."],shopLinks:[{label:"🍳 12-inch Cast Iron Skillet",q:"cast iron skillet 12 inch pre-seasoned"},{label:"🥫 San Marzano Crushed Tomatoes",q:"san marzano crushed tomatoes canned"}]},
+ {name:"10-Minute Pesto Tortellini",emoji:"🍝",sizes:["small","medium","large"],diet:"Vegetarian",method:"Stovetop",desc:"Store-bought tortellini + pesto + spinach = dinner in 10 minutes.",ingredients:["Cheese tortellini","Basil pesto","Baby spinach","Parmesan","Cherry tomatoes"],steps:["Boil tortellini per package.","Toss hot tortellini with pesto and spinach until wilted.","Top with parmesan and tomatoes."],shopLinks:[{label:"🍝 Large Pasta Pot",q:"large pasta pot with strainer"},{label:"🧀 Parmesan Grater",q:"microplane grater parmesan"},{label:"🥣 Serving Bowl",q:"large serving bowl"}]},
+ {name:"Sheet Pan Honey Garlic Salmon",emoji:"🐟",sizes:["small","medium"],diet:"Gluten-Free",method:"Sheet Pan",desc:"Sweet honey-garlic glaze with salmon and green beans — one pan, fast cleanup.",ingredients:["Salmon fillets","Green beans","Honey","Soy sauce","Garlic","Lemon"],steps:["Preheat oven to 425°F.","Whisk honey, soy, garlic; brush on salmon and toss beans lightly.","Roast 12–15 min; finish with lemon."],shopLinks:[{label:"🍳 Sheet Pan",q:"rimmed baking sheet pan"},{label:"🐟 Fish Spatula",q:"fish spatula stainless steel"},{label:"🧄 Garlic Press",q:"garlic press"}]},
+ {name:"Air Fryer Quesadillas",emoji:"🫓",sizes:["small","medium","large"],diet:"Kid-Friendly",method:"Air Fryer",desc:"Extra-crispy quesadillas with almost no mess — perfect for picky eaters.",ingredients:["Flour tortillas","Cheddar cheese","Black beans","Salsa","Sour cream"],steps:["Fill tortilla with cheese and beans; fold.","Air fry at 375°F for 6–8 min, flipping once.","Slice and serve with salsa/sour cream."],shopLinks:[{label:"🌀 Air Fryer Liners",q:"air fryer parchment liners"},{label:"🍴 Pizza Cutter",q:"pizza cutter wheel"},{label:"🧀 Cheese Shredder",q:"box grater stainless"}]},
+ {name:"No-Cook Turkey & Cheese Roll-Ups",emoji:"🥬",sizes:["small","medium"],diet:"Kid-Friendly",method:"No Cook",desc:"Lunchable-style roll-ups with veggies and dip — done in 5 minutes.",ingredients:["Deli turkey","Cheese slices","Cucumbers","Baby carrots","Hummus"],steps:["Roll turkey around cheese and slice into pinwheels.","Add veggies and hummus for dipping.","Serve with fruit on the side."],shopLinks:[{label:"📦 Bento Boxes",q:"kids bento lunch box"},{label:"🧊 Small Dip Cups",q:"small sauce containers with lids"},{label:"🔪 Mini Knife Set",q:"small paring knife set"}]},
+ {name:"15-Minute Chicken Caesar Wraps",emoji:"🌯",sizes:["small","medium","large"],diet:"Kid-Friendly",method:"No Cook",desc:"Use rotisserie chicken to make Caesar wraps in minutes.",ingredients:["Rotisserie chicken","Romaine","Caesar dressing","Parmesan","Wraps","Croutons"],steps:["Chop chicken and romaine.","Toss with dressing and parmesan.","Wrap and add croutons right before eating."],shopLinks:[{label:"🥗 Salad Spinner",q:"salad spinner"},{label:"📦 Wrap Storage",q:"wrap foil sheets"},{label:"🔪 Kitchen Shears",q:"kitchen scissors shears"}]},
+ {name:"Stovetop Ramen Upgrade",emoji:"🍜",sizes:["small","medium"],diet:"Kid-Friendly",method:"Stovetop",desc:"Instant ramen made better with eggs, spinach, and frozen veggies.",ingredients:["Ramen noodles","Eggs","Spinach","Frozen mixed veggies","Sesame oil"],steps:["Cook ramen and veggies together.","Crack in an egg and simmer 2–3 minutes.","Finish with spinach and a few drops of sesame oil."],shopLinks:[{label:"🍜 Soup Bowls",q:"ramen bowls set"},{label:"🥢 Chopsticks",q:"chopsticks reusable set"},{label:"🥚 Egg Timer",q:"egg timer"}]},
+ {name:"Sheet Pan Nachos",emoji:"🧀",sizes:["medium","large","xl"],diet:"Kid-Friendly",method:"Sheet Pan",desc:"Build-your-own nachos on a tray — quick, fun, and crowd-friendly.",ingredients:["Tortilla chips","Shredded cheese","Black beans","Salsa","Jalapeños (optional)","Sour cream"],steps:["Spread chips on a sheet pan; top with cheese and beans.","Bake at 425°F for 6–8 minutes until melted.","Top with salsa and sour cream."],shopLinks:[{label:"🍳 Sheet Pan",q:"rimmed baking sheet"},{label:"🧀 Cheese Shredder",q:"box grater"},{label:"🥣 Salsa Bowls",q:"small serving bowls set"}]},
+ {name:"Garlic Parmesan Air Fryer Broccoli",emoji:"🥦",sizes:["small","medium","large"],diet:"Vegetarian",method:"Air Fryer",desc:"Crispy broccoli florets with garlic and parmesan — a kid-friendly veggie win.",ingredients:["Broccoli","Olive oil","Garlic powder","Parmesan","Salt","Pepper"],steps:["Toss broccoli with oil, seasonings, and parmesan.","Air fry at 390°F for 8–10 minutes, shaking halfway.","Serve immediately."],shopLinks:[{label:"🌀 Air Fryer",q:"air fryer 6 quart"},{label:"🧄 Garlic Powder",q:"garlic powder seasoning"},{label:"🧀 Parmesan",q:"grated parmesan cheese"}]},
+ {name:"15-Minute Beef Taco Skillet",emoji:"🌮",sizes:["medium","large","xl"],diet:"Kid-Friendly",method:"Stovetop",desc:"One pan taco meat + beans + corn — serve in tortillas or over rice.",ingredients:["Ground beef","Taco seasoning","Black beans","Corn","Salsa","Tortillas"],steps:["Brown beef and drain excess fat.","Stir in seasoning, beans, corn, and salsa; simmer 3–4 minutes.","Serve with tortillas and toppings."],shopLinks:[{label:"🍳 Large Skillet",q:"12 inch nonstick skillet"},{label:"🌮 Taco Holders",q:"taco holder stand set"},{label:"📦 Leftover Containers",q:"food storage containers set"}]},
+ {name:"Caprese Grilled Cheese",emoji:"🥪",sizes:["small","medium"],diet:"Vegetarian",method:"Stovetop",desc:"Mozzarella + tomato + basil pesto grilled cheese — fancy but fast.",ingredients:["Bread","Mozzarella","Tomato","Basil pesto","Butter"],steps:["Butter bread; add mozzarella, tomato slices, and pesto.","Grill in skillet 3–4 min per side until golden.","Slice and serve."],shopLinks:[{label:"🍳 Cast Iron Skillet",q:"cast iron skillet 10 inch"},{label:"🧈 Butter Dish",q:"butter dish with lid"},{label:"🔪 Serrated Knife",q:"serrated bread knife"}]},
+ {name:"Sheet Pan Gnocchi & Veggies",emoji:"🥔",sizes:["small","medium","large"],diet:"Vegetarian",method:"Sheet Pan",desc:"Crispy baked gnocchi with peppers and zucchini — no boiling required.",ingredients:["Shelf-stable gnocchi","Bell peppers","Zucchini","Olive oil","Italian seasoning","Parmesan"],steps:["Toss gnocchi and veggies with oil and seasoning.","Roast at 425°F for 20–22 minutes, stirring once.","Top with parmesan."],shopLinks:[{label:"🍳 Sheet Pan",q:"heavy duty baking sheet"},{label:"🧀 Parmesan",q:"parmesan cheese"},{label:"🥣 Mixing Bowl",q:"mixing bowls set"}]},
+ {name:"Quick Chickpea Curry",emoji:"🍛",sizes:["small","medium","large"],diet:"Vegan",method:"Stovetop",desc:"Pantry curry with chickpeas and coconut milk — ready in 20 minutes.",ingredients:["Chickpeas","Coconut milk","Curry powder","Onion","Garlic","Spinach","Rice"],steps:["Sauté onion and garlic 3 minutes.","Add chickpeas, curry powder, coconut milk; simmer 10 minutes.","Stir in spinach to wilt; serve over rice."],shopLinks:[{label:"🍲 Saucepan",q:"nonstick saucepan with lid"},{label:"🍚 Rice Cooker",q:"rice cooker compact"},{label:"🥫 Coconut Milk",q:"coconut milk canned"}]},
+ {name:"Greek Yogurt Chicken Salad",emoji:"🥣",sizes:["small","medium","large"],diet:"Gluten-Free",method:"No Cook",desc:"Rotisserie chicken + yogurt + grapes makes a sweet-savory quick meal.",ingredients:["Rotisserie chicken","Greek yogurt","Grapes","Celery","Dijon mustard","Salt","Pepper"],steps:["Mix yogurt, mustard, salt, pepper in a bowl.","Fold in chicken, grapes, and celery.","Serve in lettuce cups, wraps, or on crackers."],shopLinks:[{label:"🥗 Mixing Bowl",q:"mixing bowl set"},{label:"📦 Storage Containers",q:"food storage containers"},{label:"🥄 Measuring Spoons",q:"measuring spoons set"}]},
+ {name:"Air Fryer Salmon Bites",emoji:"🐟",sizes:["small","medium"],diet:"Gluten-Free",method:"Air Fryer",desc:"Bite-size salmon cubes with a simple glaze — great with rice and cucumbers.",ingredients:["Salmon","Soy sauce","Honey","Garlic","Rice","Cucumbers"],steps:["Cube salmon and toss with soy, honey, and garlic.","Air fry at 400°F for 7–9 minutes, shaking once.","Serve with rice and sliced cucumbers."],shopLinks:[{label:"🌀 Air Fryer",q:"air fryer large"},{label:"🍚 Rice Bowl Set",q:"rice bowls set"},{label:"🔪 Chef Knife",q:"chef knife 8 inch"}]},
+ {name:"15-Minute Tomato Basil Soup + Grilled Cheese",emoji:"🥣",sizes:["small","medium","large"],diet:"Vegetarian",method:"Stovetop",desc:"Use store-bought soup and level it up with basil and parmesan.",ingredients:["Tomato soup","Basil","Parmesan","Bread","Cheddar","Butter"],steps:["Heat soup; stir in basil and parmesan.","Make grilled cheese while soup warms.","Serve together."],shopLinks:[{label:"🍲 Soup Pot",q:"soup pot with lid"},{label:"🧀 Cheese Slices",q:"cheddar cheese slices"},{label:"🍞 Sandwich Press",q:"panini press"}]},
+ {name:"Sheet Pan BBQ Chicken Flatbreads",emoji:"🍕",sizes:["medium","large"],diet:"Kid-Friendly",method:"Sheet Pan",desc:"Flatbreads topped with BBQ chicken and cheese — ready in 12 minutes.",ingredients:["Flatbreads","Cooked chicken","BBQ sauce","Mozzarella","Red onion (optional)"],steps:["Mix chicken with BBQ sauce.","Top flatbreads with chicken and cheese.","Bake at 425°F for 10–12 minutes until bubbly."],shopLinks:[{label:"🍕 Pizza Cutter",q:"pizza cutter wheel"},{label:"🍳 Sheet Pan",q:"rimmed baking sheet pan"},{label:"🧀 Mozzarella",q:"shredded mozzarella cheese"}]},
+ {name:"Stir-Fry Udon Noodles",emoji:"🍜",sizes:["medium","large"],diet:"Vegetarian",method:"Stovetop",desc:"Chewy udon + frozen stir-fry veggies + soy sauce = 15-minute dinner.",ingredients:["Udon noodles","Frozen stir-fry vegetables","Soy sauce","Sesame oil","Garlic","Green onion"],steps:["Sauté veggies 4–5 minutes with garlic.","Add udon and soy sauce; toss 3–4 minutes.","Finish with sesame oil and green onion."],shopLinks:[{label:"🥢 Wok",q:"wok pan nonstick"},{label:"🍜 Udon Noodles",q:"udon noodles pack"},{label:"🧄 Minced Garlic",q:"minced garlic jar"}]},
+ {name:"No-Cook Mediterranean Plate",emoji:"🫒",sizes:["small","medium"],diet:"Vegetarian",method:"No Cook",desc:"Hummus + pita + cucumbers + olives + feta — a zero-cook dinner plate.",ingredients:["Hummus","Pita","Cucumbers","Cherry tomatoes","Olives","Feta"],steps:["Arrange hummus and toppings on a plate.","Warm pita if desired.","Eat family-style."],shopLinks:[{label:"🥙 Pita Warmer",q:"tortilla pita warmer"},{label:"🫙 Small Bowls",q:"small dip bowls set"},{label:"📦 Serving Platter",q:"serving platter"}]},
+ {name:"15-Minute Tuna Melt",emoji:"🐟",sizes:["small","medium"],diet:"Kid-Friendly",method:"Stovetop",desc:"Classic tuna melt with cheddar — quick, filling, and pantry-friendly.",ingredients:["Tuna","Mayo","Celery","Bread","Cheddar cheese","Butter"],steps:["Mix tuna with mayo and chopped celery.","Pile on bread with cheddar; grill 3–4 min per side.","Serve warm."],shopLinks:[{label:"🍳 Skillet",q:"nonstick skillet 10 inch"},{label:"🧀 Cheddar",q:"cheddar cheese slices"},{label:"🔪 Paring Knife",q:"paring knife"}]},
+ {name:"Air Fryer Mini Meatballs + Marinara",emoji:"🍝",sizes:["medium","large"],diet:"Kid-Friendly",method:"Air Fryer",desc:"Frozen meatballs crisped in the air fryer — serve with marinara and pasta.",ingredients:["Frozen meatballs","Marinara sauce","Pasta","Parmesan","Basil"],steps:["Air fry meatballs at 380°F for 10–12 minutes.","Warm marinara and boil pasta.","Toss together and top with parmesan."],shopLinks:[{label:"🌀 Air Fryer",q:"air fryer 6 qt"},{label:"🍝 Pasta Pot",q:"pasta pot"},{label:"🧀 Parmesan",q:"grated parmesan"}]},
+ {name:"Sheet Pan Breakfast-for-Dinner",emoji:"🍳",sizes:["medium","large","xl"],diet:"Kid-Friendly",method:"Sheet Pan",desc:"Sausage + potatoes + peppers roasted together; crack eggs on top at the end.",ingredients:["Breakfast sausage","Potatoes","Bell peppers","Onion","Eggs","Olive oil","Salt","Pepper"],steps:["Roast sausage, potatoes, peppers, onion at 425°F for 20 minutes.","Make wells and crack eggs; bake 6–8 minutes until set.","Serve with hot sauce or ketchup."],shopLinks:[{label:"🍳 Sheet Pan",q:"rimmed baking sheet heavy duty"},{label:"🥔 Potato Dicer",q:"vegetable chopper dicer"},{label:"📦 Leftover Containers",q:"food storage containers with lids"}]},
+ {name:"15-Minute Lemon Garlic Orzo",emoji:"🍋",sizes:["small","medium","large"],diet:"Vegetarian",method:"Stovetop",desc:"Bright lemony orzo with spinach — add chicken if you want.",ingredients:["Orzo","Garlic","Lemon","Spinach","Parmesan","Olive oil"],steps:["Cook orzo; reserve a little pasta water.","Sauté garlic in olive oil; add orzo, lemon, and spinach.","Stir in parmesan; loosen with pasta water if needed."],shopLinks:[{label:"🍲 Saucepan",q:"saucepan with lid"},{label:"🧄 Garlic Press",q:"garlic press"},{label:"🍋 Citrus Juicer",q:"lemon juicer hand press"}]},
+ {name:"Veggie Omelet Bar",emoji:"🥚",sizes:["small","medium","large"],diet:"Gluten-Free",method:"Stovetop",desc:"Eggs + chopped toppings = customizable omelets in 12 minutes.",ingredients:["Eggs","Cheddar","Spinach","Mushrooms","Bell pepper","Salt","Pepper"],steps:["Sauté veggies 3–4 minutes.","Pour beaten eggs; add cheese and fold.","Serve with fruit or toast."],shopLinks:[{label:"🍳 Nonstick Skillet",q:"nonstick skillet 10 inch"},{label:"🥄 Whisk",q:"silicone whisk set"},{label:"🧀 Cheese",q:"shredded cheddar cheese"}]},
+ {name:"10-Minute Egg & Cheese Breakfast Tacos",emoji:"🌮",sizes:["small","medium","large"],diet:"Kid-Friendly",method:"Stovetop",desc:"Soft tacos with scrambled eggs and cheese — add salsa and you’re done.",ingredients:["Eggs","Flour tortillas","Cheddar cheese","Salsa","Butter"],steps:["Scramble eggs in butter until just set.","Warm tortillas and fill with eggs and cheese.","Top with salsa and serve."],shopLinks:[{label:"🌮 Taco Holders",q:"taco holder stand set"},{label:"🍳 Nonstick Skillet",q:"nonstick skillet 10 inch"},{label:"🧀 Cheese Shredder",q:"box grater stainless steel"}]},
+ {name:"15-Minute BBQ Chickpea Wraps",emoji:"🌯",sizes:["small","medium","large"],diet:"Vegan",method:"No Cook",desc:"Mash chickpeas with BBQ sauce and crunchy slaw for a fast wrap.",ingredients:["Chickpeas","BBQ sauce","Wraps","Coleslaw mix","Pickles"],steps:["Mash chickpeas lightly and stir in BBQ sauce.","Pile onto wraps with slaw and pickles.","Roll tight and slice."],shopLinks:[{label:"🥣 Mixing Bowl",q:"mixing bowl set"},{label:"📦 Wrap Storage",q:"wrap foil sheets"},{label:"🥫 Chickpeas",q:"canned chickpeas pack"}]},
+ {name:"Sheet Pan Roasted Gnocchi + Sausage",emoji:"🍽️",sizes:["medium","large"],diet:"Kid-Friendly",method:"Sheet Pan",desc:"Shelf-stable gnocchi roasted with sausage and peppers — crispy edges, zero boiling.",ingredients:["Shelf-stable gnocchi","Italian sausage","Bell peppers","Onion","Olive oil","Italian seasoning"],steps:["Toss everything with oil and seasoning on a sheet pan.","Roast at 425°F for 22–25 min, stirring once.","Serve with parmesan or marinara."],shopLinks:[{label:"🍳 Sheet Pan",q:"heavy duty rimmed baking sheet pan"},{label:"🔪 Chef Knife",q:"chef knife 8 inch"},{label:"🧀 Parmesan",q:"grated parmesan cheese"}]},
+ {name:"Air Fryer Sweet Potato Fries + Nuggets",emoji:"🍟",sizes:["small","medium","large"],diet:"Kid-Friendly",method:"Air Fryer",desc:"A kid classic: crispy sweet potato fries and nuggets in one air-fryer cycle.",ingredients:["Sweet potatoes","Chicken nuggets","Olive oil","Salt","Ketchup"],steps:["Cut fries; toss with oil and salt.","Air fry fries at 390°F for 10 min, shake.","Add nuggets and cook 8–10 min more."],shopLinks:[{label:"🌀 Air Fryer Liners",q:"air fryer parchment liners"},{label:"🍟 Fry Cutter",q:"french fry cutter"},{label:"🧂 Seasoning Salt",q:"seasoning salt"}]},
+ {name:"15-Minute Ricotta Pasta",emoji:"🧀",sizes:["small","medium","large"],diet:"Vegetarian",method:"Stovetop",desc:"Creamy ricotta + lemon + pasta water turns into a quick silky sauce.",ingredients:["Pasta","Ricotta","Lemon","Parmesan","Olive oil","Black pepper"],steps:["Boil pasta and reserve 1 cup pasta water.","Stir ricotta, lemon, parmesan, oil, and pepper in a bowl.","Toss with hot pasta, loosening with pasta water."],shopLinks:[{label:"🍝 Pasta Pot",q:"large pasta pot with strainer"},{label:"🍋 Lemon Juicer",q:"lemon juicer hand press"},{label:"🧀 Parmesan Grater",q:"microplane grater"}]},
+ {name:"20-Minute Stir-Fry Rice Cakes",emoji:"🍲",sizes:["medium","large"],diet:"Vegetarian",method:"Stovetop",desc:"Chewy rice cakes with veggies in a quick soy-sesame sauce (mild, kid-friendly).",ingredients:["Korean rice cakes","Frozen stir-fry vegetables","Soy sauce","Sesame oil","Garlic","Honey"],steps:["Soak rice cakes 5 min if needed; drain.","Stir-fry veggies and garlic 3–4 min; add rice cakes.","Add soy, sesame, honey; cook 5–7 min until chewy."],shopLinks:[{label:"🥢 Wok",q:"carbon steel wok flat bottom"},{label:"🧄 Minced Garlic",q:"minced garlic jar"},{label:"🍚 Rice Cakes",q:"korean rice cakes tteok"}]},
+ {name:"15-Minute Breakfast Quesadilla",emoji:"🫓",sizes:["small","medium"],diet:"Kid-Friendly",method:"Stovetop",desc:"Eggs + cheese folded into a tortilla — crispy outside, melty inside.",ingredients:["Eggs","Flour tortillas","Cheddar cheese","Butter","Salsa"],steps:["Scramble eggs quickly; set aside.","Fill tortilla with eggs and cheese; fold.","Pan-toast 2–3 min per side; serve with salsa."],shopLinks:[{label:"🍳 Skillet",q:"nonstick skillet 10 inch"},{label:"🫓 Tortilla Warmer",q:"tortilla warmer microwave cloth"},{label:"🧀 Cheese",q:"shredded cheddar cheese"}]}
+
 ];
 
 /* ── WHEEL ENGINE ── */
@@ -1159,26 +1314,54 @@ function activityLinksHTML(item){
   return h;
 }
 
+
+
+function escHTML(s){
+  return String(s ?? '').replace(/[&<>"']/g, m => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[m]));
+}
 function takeoutLinksHTML(item){
-  if(!item) return '';
-  const website=item.website||item.site||item.url||'';
-  const order=item.order||item.orderLink||item.delivery||'';
-  let h='';
-  if(order || website){
-    h += `<div class="shopwrap"><h5>🍕 Order</h5><div class="shoprow">`;
-    if(order) h += `<a class="sha pri" href="${order}" target="_blank" rel="noopener">🍽️ Order direct / delivery</a>`;
-    if(website) h += `<a class="sha" href="${website}" target="_blank" rel="noopener">🌐 Restaurant website</a>`;
-    h += `</div></div>`;
-  }
-  return h;
+  try{
+    const name=item?.name||'';
+    const orderRaw=item?.order||item?.orderLink||item?.ordering||item?.delivery||'';
+    const siteRaw=item?.website||item?.url||item?.site||item?.link||'';
+    const qOrder=encodeURIComponent((name?name+' ':'')+'order online');
+    const qSite=encodeURIComponent((name?name+' ':'')+'official website');
+    const qMaps=encodeURIComponent(name||'');
+    const order = orderRaw || (name?('https://www.google.com/search?q='+qOrder):'');
+    const site  = siteRaw  || (name?('https://www.google.com/search?q='+qSite):'');
+    const maps  = (name?('https://www.google.com/maps/search/?api=1&query='+qMaps):'');
+    const pills=[];
+    if(order) pills.push(`<a class="pill" href="${order}" target="_blank" rel="noopener nofollow">🛒 Order</a>`);
+    if(site)  pills.push(`<a class="pill" href="${site}" target="_blank" rel="noopener nofollow">🔗 Website</a>`);
+    if(maps)  pills.push(`<a class="pill" href="${maps}" target="_blank" rel="noopener nofollow">📍 Map</a>`);
+    if(!pills.length) return '';
+    return `<div class="shoplinks" style="margin-top:.5rem">${pills.join('')}</div>`;
+  }catch(e){ return ''; }
 }
 
+
+
 function adventureLinksHTML(item){
-  if(!item) return '';
-  const website=item.website||item.site||item.url||'';
-  if(!website) return '';
-  return `<div class="shopwrap"><h5>🧭 Learn more</h5><div class="shoprow"><a class="sha" href="${website}" target="_blank" rel="noopener">🌐 Official website</a></div></div>`;
+  try{
+    const name=item?.name||'';
+    const siteRaw=item?.website||item?.url||item?.site||item?.link||'';
+    const ticketsRaw=item?.tickets||item?.booking||item?.reserve||'';
+    const qSite=encodeURIComponent((name?name+' ':'')+'official website');
+    const qMaps=encodeURIComponent(name||'');
+    const site  = siteRaw  || (name?('https://www.google.com/search?q='+qSite):'');
+    const maps  = (name?('https://www.google.com/maps/search/?api=1&query='+qMaps):'');
+    const tickets = ticketsRaw || '';
+    const pills=[];
+    if(site)    pills.push(`<a class="pill" href="${site}" target="_blank" rel="noopener nofollow">🔗 Website</a>`);
+    if(tickets) pills.push(`<a class="pill" href="${tickets}" target="_blank" rel="noopener nofollow">🎟️ Tickets</a>`);
+    if(maps)    pills.push(`<a class="pill" href="${maps}" target="_blank" rel="noopener nofollow">📍 Map</a>`);
+    if(!pills.length) return '';
+    return `<div class="shoplinks" style="margin-top:.5rem">${pills.join('')}</div>`;
+  }catch(e){ return ''; }
 }
+
 // ===============================================
 
 function rndr(k,item){
@@ -1200,7 +1383,7 @@ function rndr(k,item){
     document.getElementById(k+'-area').textContent=item.area;
     document.getElementById(k+'-drive').textContent=item.drive;
     document.getElementById(k+'-age').textContent=item.age;
-    document.getElementById(k+'-about').textContent=item.about;
+    const __a=document.getElementById(k+'-about'); if(__a){ __a.textContent=item.about||''; __a.insertAdjacentHTML('beforeend', adventureLinksHTML(item)); }
   }
   if(type==='t'){
     document.getElementById(k+'-nm2').textContent=item.name;
@@ -1209,7 +1392,7 @@ function rndr(k,item){
     document.getElementById(k+'-hood').textContent=item.hood;
     document.getElementById(k+'-cui').textContent=item.cuisine;
     document.getElementById(k+'-pri').textContent=item.price==='$'?'$ Budget-friendly':item.price==='$$'?'$$ Mid-range':'$$$ Splurge';
-    document.getElementById(k+'-abt').textContent=item.about;
+    const __abt=document.getElementById(k+'-abt'); if(__abt){ __abt.textContent=item.about||''; __abt.insertAdjacentHTML('beforeend', takeoutLinksHTML(item)); }
   }
   const rk=k==='m'||k==='q'?k:type==='m'||type==='q'?type:null;
   if(rk){
@@ -1304,6 +1487,7 @@ function buildCity(cid){
 
 const built=new Set();
 buildCity('ph');built.add('ph');
+const __sel=document.getElementById('citySelect'); if(__sel) __sel.value='ph';
 buildSharedMeals();
 function buildSharedMeals(){
   const mpR=`<div class="rdesc" id="m-desc"></div><div class="mings"><h5>🛒 Key Ingredients</h5><div class="ingwrap" id="m-ings"></div></div><div class="msteps" id="m-steps"></div><div class="shopwrap" id="m-shop" style="display:none"><div class="shopsec"><h5>📦 Amazon Fresh</h5><div class="shoprow" id="m-afl"></div></div><div class="shopsec"><h5>🔧 Kitchen Gear</h5><div class="shoprow" id="m-gear"></div></div></div>`;
@@ -1322,5 +1506,6 @@ function buildSharedMeals(){
 }
 
 </script>
-</body>
-</html>
+
+
+</body></html>
