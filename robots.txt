@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://familydecider.com/sitemap.xml
